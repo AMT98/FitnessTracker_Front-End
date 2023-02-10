@@ -1,11 +1,12 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       {/* navBar */}
+      <NavBar />
       <div>
-        <h1 className="text-4xl">Hello, World!</h1>
       </div>
       {/* footer */}
     </div>
