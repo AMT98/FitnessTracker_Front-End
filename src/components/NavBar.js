@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [nav, setNav] = useState(false);
@@ -15,62 +16,76 @@ const NavBar = () => {
     },
     {
       id: 3,
-      link: "routines",
+      link: "Training",
     },
     {
       id: 4,
-      link: "contact",
-    },
-    {
-      id: 5,
-      link: "Log In",
+      link: "shop gear",
     },
   ];
-
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] fixed cursor-pointer z-10 ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] fixed z-10 ">
       <div>
-        <h2 className="text-4xl font-signature hover:text-[#F25D47] ml-2 text-[#F8B971]">
+        <h2 className="text-xl md:text-4xl font-signature hover:text-[#F25D47] ml-2 text-[#F8B971] cursor-pointer">
           GitFit
         </h2>
       </div>
-      <ul className="hidden md:flex navItems">
+      <ul className="hidden md:flex gap-10 ">
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="px-2 cursor-pointer capitalize text-sm hover:text-[#F25D47] hover:scale-95 duration-200 text-[#F8B971]"
+            className="px-2 cursor-pointer capitalize text-lg hover:text-[#F25D47] hover:scale-95 duration-200 text"
           >
             <Link to={link} smooth duration={500}>
-              <span className="px-1 text-[#F25D47]">{id}.</span>
               {link}
             </Link>
           </li>
         ))}
       </ul>
-      <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 rounded text-sm md:text-md">
-        Become a Member
-      </button>
+      <div className="hidden md:flex gap-2 md:gap-5">
+        <button className="border p-2 md:p-3 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+          Sign In
+        </button>
+        <Link to="/register">
+          <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+            Become a Member
+          </button>
+        </Link>
+      </div>
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
+        className="cursor-pointer pr-4 z-10 md:hidden"
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
       {nav && (
-        <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#1F1F1F] text-[#F8B971]">
-          {links.map(({ id, link }) => (
-            <li key={id} className="cursor-pointer capitalize py-6 text-4xl">
-              <Link
-                onClick={() => setNav(!nav)}
-                to={link}
-                smooth
-                duration={500}
+        <>
+          <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#181616] text-[#F8B971]">
+            {links.map(({ id, link }) => (
+              <li
+                key={id}
+                className="cursor-pointer capitalize py-4 text-2xl mr-[33%]"
               >
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
+                <Link
+                  onClick={() => setNav(!nav)}
+                  to={link}
+                  smooth
+                  duration={500}
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
+            <div className="flex flex-col gap-2 md:gap-5 mr-[33%]">
+              <button className="border p-3 md:p-3 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-md md:text-md hover:text-[#F25D47]">
+                Sign In
+              </button>
+              <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-md md:text-md hover:text-[#F25D47]">
+                Become a Member
+              </button>
+            </div>
+          </ul>
+        </>
       )}
     </div>
   );
