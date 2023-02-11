@@ -24,7 +24,7 @@ const NavBar = () => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] fixed z-10 ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] z-10 ">
       <div>
         <h2 className="text-xl md:text-4xl font-signature hover:text-[#F25D47] ml-2 text-[#F8B971] cursor-pointer">
           GitFit
@@ -46,11 +46,11 @@ const NavBar = () => {
         <button className="border p-2 md:p-3 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
           Sign In
         </button>
-        <Link to="/register">
+        <NavLink to="/register">
           <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
             Become a Member
           </button>
-        </Link>
+        </NavLink>
       </div>
       <div
         onClick={() => setNav(!nav)}

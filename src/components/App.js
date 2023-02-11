@@ -8,19 +8,16 @@ import Register from "./Register";
 const App = () => {
   return (
     <>
-      <NavBar />
       <Router>
-        <Routes>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-        </Routes>
+        <NavBar />
+        <div>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
       </Router>
     </>
   );
