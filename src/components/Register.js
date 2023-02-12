@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchRegister } from "../api/api";
+import videoBg from "../assets/bgvideo.mp4";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -22,13 +23,12 @@ const Register = () => {
   };
   return (
     <>
-      <form onSubmit={handleRegister} className="h-screen bg-black">
-        <div className=" w-4/12 ml-[33%] flex flex-col p-6 items-center ">
-          <h1 className="text-[#F8B971] text-4xl font-bold mb-6">Sign up</h1>
-          <label className="text-4xl font-bold mb-2 text-[#F25D47]">
-            Username
+      <form onSubmit={handleRegister} className="h-screen w-screen bg-black">
+        <div className=" absolute h-screen top-0 flex flex-col items-center justify-center ml-[23%] md:ml-[40%]">
+          <h1 className="text-[#F8B971] text-6xl font-bold mb-6">Sign up</h1>
+          <label>
             <input
-              className=" flex flex-col text-2xl border rounded-xl"
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2"
               type="text"
               placeholder="Username*"
               maxLength="10"
@@ -39,11 +39,9 @@ const Register = () => {
             ></input>
           </label>
 
-          <label
-          className="text-4xl font-bold mt-6 text-[#F25D47]">
-            Password
+          <label className="mt-3">
             <input
-              className="flex flex-col text-2xl border rounded-xl"
+              className="flex flex-col text-xl border rounded-xl py-4 px-2"
               type="password"
               placeholder="Password*"
               maxLength="8"
@@ -53,8 +51,18 @@ const Register = () => {
             ></input>
           </label>
 
-          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white">Register</button>
+          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white hover:bg-black hover:text-white">
+            Register
+          </button>
         </div>
+        <div className=" absolute top-0 left-0 w-full bg-[#0000003a]"></div>
+        <video
+          className="w-full h-full object-cover"
+          src={videoBg}
+          autoPlay
+          loop
+          muted
+        />
       </form>
     </>
   );

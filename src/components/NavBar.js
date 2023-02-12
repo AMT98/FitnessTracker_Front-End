@@ -24,7 +24,7 @@ const NavBar = () => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] z-10 ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] z-20 ">
       <div>
         <h2 className="text-xl md:text-4xl font-signature hover:text-[#F25D47] ml-2 text-[#F8B971] cursor-pointer">
           GitFit
@@ -54,13 +54,13 @@ const NavBar = () => {
       </div>
       <div
         onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 md:hidden"
+        className="cursor-pointer pr-4 z-50 md:hidden"
       >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
       {nav && (
         <>
-          <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#181616] text-[#F8B971]">
+          <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#3b3a3a] z-10 text-[#F8B971]">
             {links.map(({ id, link }) => (
               <li
                 key={id}
