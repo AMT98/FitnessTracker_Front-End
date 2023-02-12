@@ -22,34 +22,39 @@ const Register = () => {
   };
   return (
     <>
-      <form onSubmit={handleRegister} className="h-full bg-black text-white">
-        <h1>Sign up</h1>
-        <label>
-          <input
-            className=""
-            type="text"
-            placeholder="Username*"
-            maxLength="10"
-            required
-            autoFocus
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          ></input>
-        </label>
+      <form onSubmit={handleRegister} className="h-screen bg-black">
+        <div className=" w-4/12 ml-[33%] flex flex-col p-6 items-center ">
+          <h1 className="text-[#F8B971] text-4xl font-bold mb-6">Sign up</h1>
+          <label className="text-4xl font-bold mb-2 text-[#F25D47]">
+            Username
+            <input
+              className=" flex flex-col text-2xl border rounded-xl"
+              type="text"
+              placeholder="Username*"
+              maxLength="10"
+              required
+              autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            ></input>
+          </label>
 
-        <label>
-          <input
-            className=""
-            type="password"
-            placeholder="Password*"
-            maxLength="8"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </label>
+          <label
+          className="text-4xl font-bold mt-6 text-[#F25D47]">
+            Password
+            <input
+              className="flex flex-col text-2xl border rounded-xl"
+              type="password"
+              placeholder="Password*"
+              maxLength="8"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
+          </label>
 
-        <button className="inputBtn">Sign up</button>
+          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white">Register</button>
+        </div>
       </form>
     </>
   );
