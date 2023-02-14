@@ -14,6 +14,7 @@ const Register = () => {
       if (register.success) {
         // localStorage.setItem('token', )
         console.log(register);
+        localStorage.setItem("token", register.token);
       }
       setUsername("");
       setPassword("");
@@ -24,11 +25,11 @@ const Register = () => {
   return (
     <>
       <form onSubmit={handleRegister} className="h-screen w-screen bg-black">
-        <div className=" absolute h-screen top-0 flex flex-col items-center justify-center ml-[23%] md:ml-[40%] z-20">
+        <div className=" absolute h-screen top-[100px] flex flex-col items-center justify-center ml-[23%] md:ml-[40%] z-10">
           <h1 className="text-[#F8B971] text-6xl font-bold mb-6">Sign up</h1>
           <label>
             <input
-              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white"
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white "
               type="text"
               placeholder="Username*"
               maxLength="10"
@@ -51,7 +52,7 @@ const Register = () => {
             ></input>
           </label>
 
-          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white hover:bg-black hover:text-white">
+          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white hover:bg-black hover:text-white ">
             Register
           </button>
         </div>
