@@ -1,6 +1,6 @@
 //API provided by learn dot, we will change this link with our link.
-// const APIURL = "https://fitnesstrac-kr.herokuapp.com/api";
-const APIURL = "https://fitnesstracker-1bo4.onrender.com/api";
+const APIURL = "https://fitnesstrac-kr.herokuapp.com/api";
+// const APIURL = "https://fitnesstracker-1bo4.onrender.com/api";
 const token = "notArealToken";
 //POST register user
 export const fetchRegister = async (username, password) => {

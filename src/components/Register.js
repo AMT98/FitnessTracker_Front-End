@@ -24,11 +24,11 @@ const Register = () => {
   return (
     <>
       <form onSubmit={handleRegister} className="h-screen w-screen bg-black">
-        <div className=" absolute h-screen top-0 flex flex-col items-center justify-center ml-[23%] md:ml-[40%]">
+        <div className=" absolute h-screen top-0 flex flex-col items-center justify-center ml-[23%] md:ml-[40%] z-20">
           <h1 className="text-[#F8B971] text-6xl font-bold mb-6">Sign up</h1>
           <label>
             <input
-              className=" flex flex-col text-xl border rounded-xl py-4 px-2"
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white"
               type="text"
               placeholder="Username*"
               maxLength="10"
@@ -41,7 +41,7 @@ const Register = () => {
 
           <label className="mt-3">
             <input
-              className="flex flex-col text-xl border rounded-xl py-4 px-2"
+              className="flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white"
               type="password"
               placeholder="Password*"
               maxLength="8"

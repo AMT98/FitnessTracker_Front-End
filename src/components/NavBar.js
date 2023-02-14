@@ -43,9 +43,11 @@ const NavBar = () => {
         ))}
       </ul>
       <div className="hidden md:flex gap-2 md:gap-5">
-        <button className="border p-2 md:p-3 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
-          Sign In
-        </button>
+        <NavLink to="/login">
+          <button className="border p-2 md:p-3 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+            Sign In
+          </button>
+        </NavLink>
         <NavLink to="/register">
           <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
             Become a Member
