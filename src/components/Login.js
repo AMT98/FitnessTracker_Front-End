@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { fetchLogin } from "../api/api";
-import gymBG from "../assets/gym.jpg";
+import gym from "../assets/gym.jpg";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -25,7 +25,7 @@ const Login = () => {
           <h1 className="text-[#F8B971] text-6xl font-bold mb-6">Log In</h1>
           <label>
             <input
-              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white "
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2 text-black bg-white"
               type="text"
               placeholder="Username*"
               maxLength="10"
@@ -38,7 +38,7 @@ const Login = () => {
 
           <label className="mt-3">
             <input
-              className="flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white "
+              className="flex flex-col text-xl border rounded-xl py-4 px-2 text-black bg-white "
               type="password"
               placeholder="Password*"
               maxLength="8"
@@ -52,6 +52,8 @@ const Login = () => {
             Submit
           </button>
         </div>
+        <div className=" absolute top-0 left-0 w-full bg-[#0000003a]"></div>
+        <img src={gym} alt="gymimage" className="w-full h-full object-cover" />
       </form>
     </>
   );

@@ -39,7 +39,7 @@ export const fetchLogin = async (username, password) => {
 
 //GET users/me
 
-export const fetchUser = async () => {
+export const fetchUser = async (token) => {
   const res = await fetch(`${APIURL}/users/me`, {
     headers: {
       "Content-Type": "application/json",
