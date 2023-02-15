@@ -48,7 +48,7 @@ const Login = () => {
             ></input>
           </label>
 
-          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-[#6ED8B4] text-[#E3FFA8] hover:scale-110 border-[#6ED8B4]">
+          <button className="text-xl font-bold m-11 border rounded-full p-3 text-[#6ED8B4] bg-[#0a0a0a] hover:scale-110 border-[#6ED8B4]">
             Submit
           </button>
         </div>

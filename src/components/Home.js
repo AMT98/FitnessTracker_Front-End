@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="bg-[#000000] flex flex-col md:flex-row gap-11 h-screen w-screen">
-        <div className="flex md:ml-[14%] md:w-45% w-6/12 ml-[7%] mt-[4%] flex-col items-center">
+      <div className="bg-[#000000] flex  flex-col md:flex-row gap-11 h-screen w-screen">
+        <div className="flex md:ml-[14%] w-6/12 md:w-[6/12] ml-[5%] mt-[4%] flex-col items-center">
           <h1 className="text-4xl md:text-8xl text-[#6ED8B4] font-bold capitalize mb-[5%]">
             GitFit fitness club
           </h1>
