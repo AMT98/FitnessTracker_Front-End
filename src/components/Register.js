@@ -26,10 +26,10 @@ const Register = () => {
     <>
       <form onSubmit={handleRegister} className="h-screen w-screen bg-black">
         <div className=" absolute h-screen top-[100px] flex flex-col items-center justify-center ml-[23%] md:ml-[40%] z-10">
-          <h1 className="text-[#F8B971] text-6xl font-bold mb-6">Sign up</h1>
+          <h1 className="text-[#E3FFA8] capitalize text-6xl font-bold mb-6">Sign up</h1>
           <label>
             <input
-              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white "
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white border-[#6ED8B4] "
               type="text"
               placeholder="Username*"
               maxLength="10"
@@ -42,7 +42,7 @@ const Register = () => {
 
           <label className="mt-3">
             <input
-              className="flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white"
+              className="flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white border-[#6ED8B4]"
               type="password"
               placeholder="Password*"
               maxLength="8"
@@ -52,7 +52,7 @@ const Register = () => {
             ></input>
           </label>
 
-          <button className="text-xl font-bold m-11 border rounded-full p-3 bg-white hover:bg-black hover:text-white ">
+          <button className="text-xl font-bold m-11 border rounded-full p-3 text-[#E3FFA8] hover:text-[#6ED8B4] border-[#6ED8B4] ">
             Register
           </button>
         </div>

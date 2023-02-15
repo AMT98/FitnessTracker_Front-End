@@ -27,9 +27,9 @@ const NavBar = () => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-[#F8B971] bg-[#1F1F1F] z-40 sticky ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-[#E3FFA8] bg-[#0F0F0F] z-40 sticky ">
       <div>
-        <h2 className="text-xl md:text-4xl font-signature hover:text-[#F25D47] ml-2 text-[#F8B971] cursor-pointer">
+        <h2 className="text-xl md:text-4xl font-signature hover:text-[#6ED8B4] ml-2 text-[#E3FFA8] cursor-pointer">
           GitFit
         </h2>
       </div>
@@ -37,7 +37,7 @@ const NavBar = () => {
         {links.map(({ id, link, path }) => (
           <li
             key={id}
-            className="px-2 cursor-pointer capitalize text-lg hover:text-[#F25D47] hover:scale-95 duration-200 text"
+            className="px-2 cursor-pointer capitalize text-lg hover:text-[#6ED8B4] hover:scale-95 duration-200 text"
           >
             <NavLink to={path} smooth duration={500}>
               {link}
@@ -47,12 +47,12 @@ const NavBar = () => {
       </ul>
       <div className="hidden md:flex gap-2 md:gap-5">
         <NavLink to="/login">
-          <button className="border p-3 md:p-4 md:px-6 border-[#F25D47] hover:border-[#F8B971] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+          <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
             Sign In
           </button>
         </NavLink>
         <NavLink to="/register">
-          <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+          <button className="border p-3 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
             Become a Member
           </button>
         </NavLink>
@@ -65,7 +65,7 @@ const NavBar = () => {
       </div>
       {nav && (
         <>
-          <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#3b3a3a] z-10 text-[#F8B971] overflow-">
+          <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#3b3a3a] z-10 text-[#E3FFA8] overflow-">
             {links.map(({ id, link }) => (
               <li
                 key={id}
@@ -83,12 +83,12 @@ const NavBar = () => {
             ))}
             <div className="flex flex-col gap-2 md:gap-5 mr-[33%]">
               <NavLink to="/login">
-                <button className="border py-3 px-11 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+                <button className="border py-3 px-11 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
                   Sign In
                 </button>
               </NavLink>
               <NavLink to="/register">
-                <button className="border p-3 md:p-4 border-[#F25D47] hover:scale-105 hover:border-[#F8B971] duration-300 rounded-xl text-xs md:text-md hover:text-[#F25D47]">
+                <button className="border p-3 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
                   Become a Member
                 </button>
               </NavLink>
