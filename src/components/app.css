@@ -1,11 +1,14 @@
 .footer{
-    background-color: rgb(245, 191, 91);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: aquamarine;
 }
 
 .footerlinks{
     font-weight: bolder;
     display: flex;
-    position: relative;
     margin: 0 auto;
     margin: bottom 20px;
     padding: 0 auto;
@@ -15,9 +18,19 @@
 #findus{
     font-weight: bolder;
     display: flex;
-    position: relative;
     margin: 0 auto;
     margin: bottom 20px;
     padding: 0 auto;
     justify-content: center;
+}
+
+.social{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin: bottom 20px;
+    padding: 0 auto;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
 }
