@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-import {fetchPublicRoutines} from "../api/api"
+import {fetchPublicRoutines, createRoutine} from "../api/api"
 
 const Routines = () => {
   const [routines, setRoutines] = useState([]);
