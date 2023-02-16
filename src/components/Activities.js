@@ -14,12 +14,20 @@ const Activities = () => {
   // console.log(activities);
   return (
     <>
-      {activities.map((activity) => (
-        <div>
-          <h1>{activity.name}</h1>
-          <h3>{activity.description}</h3>
-        </div>
-      ))}
+      <h1>Activities</h1>
+      <div className="flex flex-row h-screen w-screen gap-6 flex-wrap">
+        {activities.map((activity) => (
+          <div
+            key={activity.id}
+            className="flex flex-col border rounded-xl items-center p-6 font-bold bg-[#E3FFA8] w-[20%] h-[35%]"
+          >
+            <h1 className="capitalize mb-[20px]">{activity.name}</h1>
+            <h3 className="capitalize text-[#018956]">
+              {activity.description}
+            </h3>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
