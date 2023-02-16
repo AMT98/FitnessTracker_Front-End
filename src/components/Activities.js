@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import { fetchAllActivities } from "../api/api";
 
 const Activities = () => {
-  return (
-    <div>Activities</div>
-  )
-}
+  const [activities, setActivities] = useState([]);
 
-export default Activities
+  useEffect(() => {
+    const fetchActivities = async () => {
+      const allActivities = await fetchAllActivities();
+      setActivities(allActivities);
+    };
+    fetchActivities();
+  }, []);
+  // console.log(activities);
+  return (
+    <>
+      {activities.map((activity) => (
+        <div>
+          <h1>{activity.name}</h1>
+          <h3>{activity.description}</h3>
+        </div>
+      ))}
+    </>
+  );
+};
+
+export default Activities;
