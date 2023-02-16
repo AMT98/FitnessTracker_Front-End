@@ -6,6 +6,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Register from "./Register";
 import "./app.css";
+import About from "./About";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <NavBar />
         <div>
           <Routes>
+            <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
 
             <Route path="/register" element={<Register />} />
