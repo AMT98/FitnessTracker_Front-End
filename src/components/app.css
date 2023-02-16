@@ -1,0 +1,23 @@
+.footer{
+    background-color: rgb(245, 191, 91);
+}
+
+.footerlinks{
+    font-weight: bolder;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    margin: bottom 20px;
+    padding: 0 auto;
+    justify-content: center;
+}
+
+#findus{
+    font-weight: bolder;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    margin: bottom 20px;
+    padding: 0 auto;
+    justify-content: center;
+}
