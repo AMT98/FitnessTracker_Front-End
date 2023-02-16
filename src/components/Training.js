@@ -4,7 +4,7 @@ import Routines from "./Routines";
 
 const Training = () => {
   return (
-    <div>
+    <div className="bg-[#080906] flex flex-col p-[4%]">
       <Activities />
       <Routines />
     </div>

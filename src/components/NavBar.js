@@ -39,7 +39,7 @@ const NavBar = () => {
             key={id}
             className="px-2 cursor-pointer capitalize text-lg hover:text-[#6ED8B4] hover:scale-95 duration-200 text"
           >
-            <NavLink to={path} smooth duration={500}>
+            <NavLink to={path} duration={500}>
               {link}
             </NavLink>
           </li>
