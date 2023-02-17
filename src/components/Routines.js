@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { fetchPublicRoutines, createRoutine } from "../api/api";
+import { fetchPublicRoutines, createRoutine, editRoutine } from "../api/api";
 
 import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
@@ -8,8 +8,13 @@ import { FaHeartbeat } from "react-icons/fa";
 
 const Routines = () => {
   const [routines, setRoutines] = useState([]);
+
   const [name, setName] = useState("")
   const [goal, setGoal] = useState("")
+
+const [editName, setEditName] = useState("");
+const [editGoal, setEditGoal] = useState("");
+const [editIsPublic, setEditIsPublic] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,6 +26,22 @@ const Routines = () => {
     setRoutines([...routines, newRoutine]);
     setName("");
     setGoal("");
+  };
+
+  const handleEditSubmit = async (event, routineId) => {
+    event.preventDefault();
+    const editedRoutine = await editRoutine(editName, editGoal, editIsPublic, routineId);
+    
+    const editedRoutines = routines.map((routine) => {
+      if (routine.id === routineId) {
+        return editedRoutine;
+      }
+      return routine;
+    });
+    setRoutines(editedRoutines);
+    setEditName("");
+    setEditGoal("");
+    setEditIsPublic(false);
   };
 
   useEffect(() => {
