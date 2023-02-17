@@ -6,7 +6,7 @@ const About = () => {
       <div className="w-[50%] ml-[25%] p-4 text-[#E3FFA8] flex flex-col gap-8 items-center">
         <h1 className="text-7xl text-[#6ED8B4] font-bold ">About GitFit</h1>
         <h1 className="text-sm md:text-lg">
-          Gitfit is a web app designed to help you stay active and healthy by
+          GitFit is a web app designed to help you stay active and healthy by
           providing a variety of workout routines and activities that fit your
           lifestyle. Whether you're a busy professional looking for a quick
           workout, or a fitness enthusiast seeking to mix up your routine,
