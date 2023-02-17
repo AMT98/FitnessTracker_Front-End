@@ -8,6 +8,8 @@ import Register from "./Register";
 import "./app.css";
 import About from "./About";
 import Training from "./Training";
+import Company from "./Company";
+import Policy from "./Policy";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -30,7 +32,16 @@ const App = () => {
             <Route path="/" element={<Home />} />
           </Routes>
         </div>
-        <Footer />
+        <Footer>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/careers" element={<Company />} />
+            <Route path="/policy" element={<Policy />} />
+          </Routes>
+        </div>
+        </Footer>
       </Router>
     </>
   );

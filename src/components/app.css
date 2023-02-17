@@ -1,17 +1,19 @@
 .footer{
-    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: aquamarine;
+    margin-bottom: 0px;
+    background: linear-gradient(aquamarine, rgb(164, 104, 189));
 }
 
 .footerlinks{
     font-weight: bolder;
     display: flex;
-    margin: 0 auto;
-    margin: bottom 20px;
-    padding: 0 auto;
+    flex-direction: row;
     justify-content: center;
 }
 

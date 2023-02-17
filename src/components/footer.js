@@ -9,13 +9,23 @@ const Footer = () => {
     const links = [
         {
             id: 1,
-            link: "FAQ",
-            path: "/FAQ",
+            link: "Home",
+            path: "/",
         },
         {
             id: 2,
-            link: "Need Help?",
-            path: "/about",
+            link: "Get Started",
+            path: "/register",
+        },
+        {
+            id: 3,
+            link: "Company",
+            path: "/careers",
+        },
+        {
+            id: 4,
+            link: "Policy",
+            path: "/policy",
         },
     ];
     return (<div className="footer">
