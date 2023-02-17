@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
   const [nav, setNav] = useState(false);
-  let token = props.token;
+
   const handleLogOut = () => {
+    props.setIsLoggedIn(false);
     localStorage.removeItem("token");
   };
+
+  useEffect(() => {
+    if (!props.token) {
+      const storedToken = localStorage.getItem("token");
+      props.setToken(storedToken);
+      props.setIsLoggedIn(false);
+    }
+  }, [props.isLoggedIn, props.token]);
   const links = [
     {
       id: 1,
@@ -17,13 +26,13 @@ const NavBar = (props) => {
     },
     {
       id: 2,
-      link: "about",
-      path: "/about",
+      link: "routines",
+      path: "/routines",
     },
     {
       id: 3,
-      link: "Training",
-      path: "/training",
+      link: "activities",
+      path: "/activities",
     },
     {
       id: 4,
@@ -51,7 +60,7 @@ const NavBar = (props) => {
       </ul>
       <div className="hidden md:flex gap-2 md:gap-5">
         <NavLink to="/login">
-          {!token ? (
+          {!props.isLoggedIn ? (
             <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
               Sign In
             </button>
@@ -64,7 +73,7 @@ const NavBar = (props) => {
             </button>
           )}
         </NavLink>
-        {!token && (
+        {!props.isLoggedIn && (
           <NavLink to="/register">
             <button className="border p-3 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
               Become a Member

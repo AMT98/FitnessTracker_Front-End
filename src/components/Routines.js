@@ -53,7 +53,7 @@ const [editIsPublic, setEditIsPublic] = useState(false);
   }, []);
 
   return (
-    <div>
+    <div className="bg-black">
       <h1 className="text-[#E3FFA8] text-4xl flex items-center justify-center mb-[2%]">
         Routines
       </h1>

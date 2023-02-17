@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { fetchLogin } from "../api/api";
 import gym from "../assets/gym.jpg";
 
-const Login = () => {
+const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const login = await fetchLogin(username, password);
-      if (login.success) {
-        console.log(login);
+      if (login) {
+        props.setIsLoggedIn(true);
       }
       localStorage.setItem("token", login.token);
       setUsername("");
@@ -20,12 +19,6 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
-    const storedToken = localStorage.getItem("token");
-    setToken(storedToken);
-  };
-
-  const handleLogOut = () => {
-    localStorage.removeItem("token");
   };
   return (
     <>
