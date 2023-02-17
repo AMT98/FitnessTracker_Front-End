@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import heroImg from "../assets/heroPageModel.png";
 import { NavLink } from "react-router-dom";
+import About from "./About";
+import Contact from "./Contact";
 
 const Home = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,6 +50,8 @@ const Home = (props) => {
           <img src={heroImg} alt="heroImg" className="hidden md:block" />
         </div>
       </div>
+      <About />
+      <Contact />
     </>
   );
 };

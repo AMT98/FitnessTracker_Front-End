@@ -26,13 +26,13 @@ const NavBar = (props) => {
     },
     {
       id: 2,
-      link: "about",
-      path: "/about",
+      link: "routines",
+      path: "/routines",
     },
     {
       id: 3,
-      link: "Training",
-      path: "/training",
+      link: "activities",
+      path: "/activities",
     },
     {
       id: 4,

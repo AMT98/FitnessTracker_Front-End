@@ -6,8 +6,8 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Register from "./Register";
 import "./app.css";
-import About from "./About";
-import Training from "./Training";
+import Activities from "./Activities";
+import Routines from "./Routines"
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -33,13 +33,13 @@ const App = () => {
         />
         <div>
           <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/training" element={<Training />} />
             <Route path="/login" element={<Login 
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
             />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/routines" element={<Routines />} />
             <Route path="/" element={<Home 
             isLoggedIn={isLoggedIn}
             setIsLoggedIn={setIsLoggedIn}
