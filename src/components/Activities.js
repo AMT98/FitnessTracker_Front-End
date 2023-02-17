@@ -3,6 +3,7 @@ import { fetchAllActivities } from "../api/api";
 import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
+import AddActivity from "./AddActivity";
 const Activities = () => {
   const [activities, setActivities] = useState([]);
 
@@ -28,6 +29,7 @@ const Activities = () => {
       <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
+      <AddActivity />
       <div className="flex flex-row h-screen w-screen gap-6 flex-wrap ">
         {activities.map((activity) => (
           <div

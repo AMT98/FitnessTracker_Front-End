@@ -1,7 +1,7 @@
 //API provided by learn dot, we will change this link with our link.
 // const APIURL = "https://fitnesstrac-kr.herokuapp.com/api";
 const APIURL = "https://fitnesstracker-1bo4.onrender.com/api";
-const token = localStorage.getItem("token");
+
 //POST register user
 export const fetchRegister = async (username, password) => {
   const res = await fetch(`${APIURL}/users/register`, {
@@ -76,7 +76,7 @@ export const fetchAllActivities = async () => {
 
 //POST activities
 
-export const createActivities = async (name, description) => {
+export const createActivities = async (name, description, token) => {
   const res = await fetch(`${APIURL}/activities`, {
     method: "POST",
     headers: {
@@ -94,7 +94,7 @@ export const createActivities = async (name, description) => {
 
 //PATCH activities by id
 
-export const editActivity = async (name, description, activityId) => {
+export const editActivity = async (name, description, activityId, token) => {
   const res = await fetch(`${APIURL}/activities/${activityId}`, {
     method: "PATCH",
     headers: {
@@ -136,7 +136,7 @@ export const fetchPublicRoutines = async () => {
 
 //POST routine
 
-export const createRoutine = async (name, goal, isPublic) => {
+export const createRoutine = async (name, goal, isPublic, token) => {
   const res = await fetch(`${APIURL}/routines`, {
     method: "POST",
     headers: {
@@ -155,7 +155,7 @@ export const createRoutine = async (name, goal, isPublic) => {
 
 // PATCH routine
 
-export const editRoutine = async (name, goal, isPublic, routineID) => {
+export const editRoutine = async (name, goal, isPublic, routineID, token) => {
   const res = await fetch(`${APIURL}/routines/${routineID}`, {
     method: "PATCH",
     headers: {
@@ -174,7 +174,7 @@ export const editRoutine = async (name, goal, isPublic, routineID) => {
 
 //DELETE routine
 
-export const deleteRoutine = async (activityId) => {
+export const deleteRoutine = async (activityId, token) => {
   const res = await fetch(`${APIURL}/routines/${activityId}`, {
     method: "DELETE",
     headers: {
@@ -206,7 +206,8 @@ export const attachActivityToRoutine = async (activityId, count, duration) => {
 export const editRoutineActivities = async (
   count,
   duration,
-  routineActivityId
+  routineActivityId,
+  token
 ) => {
   const res = await fetch(`${APIURL}/routine_activities/${routineActivityId}`, {
     method: "PATCH",
@@ -225,7 +226,7 @@ export const editRoutineActivities = async (
 
 //DELETE routine_activity by routineActivityId
 
-export const deleteRoutine_Activity = async (routineActivityId) => {
+export const deleteRoutine_Activity = async (routineActivityId, token) => {
   const res = await fetch(`${APIURL}/routine_activities/${routineActivityId}`, {
     method: "DELETE",
     headers: {

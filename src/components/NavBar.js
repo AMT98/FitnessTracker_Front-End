@@ -95,12 +95,7 @@ const NavBar = (props) => {
                 key={id}
                 className="cursor-pointer capitalize py-4 text-2xl mr-[33%]"
               >
-                <Link
-                  onClick={() => setNav(!nav)}
-                  to={link}
-                  smooth
-                  duration={500}
-                >
+                <Link onClick={() => setNav(!nav)} to={link} duration={500}>
                   {link}
                 </Link>
               </li>

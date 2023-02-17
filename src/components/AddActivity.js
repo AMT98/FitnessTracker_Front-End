@@ -17,8 +17,13 @@ const AddActivity = () => {
     }
   };
   return (
-    <Modal>
-      <form className="" onSubmit={handleAddActivity}>
+    <Modal
+      modalTxt="Create Activity"
+      modalTitle="Create Activity"
+      submitBtnText="Create"
+      handleSubmit={handleAddActivity}
+    >
+      <form className="">
         <label>Name:</label>
         <input
           type="text"
