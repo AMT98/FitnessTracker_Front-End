@@ -3,8 +3,12 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [nav, setNav] = useState(false);
+  let token = props.token;
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+  };
   const links = [
     {
       id: 1,
@@ -47,15 +51,26 @@ const NavBar = () => {
       </ul>
       <div className="hidden md:flex gap-2 md:gap-5">
         <NavLink to="/login">
-          <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
-            Sign In
-          </button>
+          {!token ? (
+            <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
+              Sign In
+            </button>
+          ) : (
+            <button
+              onClick={handleLogOut}
+              className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] hover:scale-105 duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]"
+            >
+              Sign Out
+            </button>
+          )}
         </NavLink>
-        <NavLink to="/register">
-          <button className="border p-3 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
-            Become a Member
-          </button>
-        </NavLink>
+        {!token && (
+          <NavLink to="/register">
+            <button className="border p-3 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
+              Become a Member
+            </button>
+          </NavLink>
+        )}
       </div>
       <div
         onClick={() => setNav(!nav)}

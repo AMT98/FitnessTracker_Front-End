@@ -23,6 +23,10 @@ const Login = () => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+  };
   return (
     <>
       <form onSubmit={handleLogin} className="h-screen w-screen bg-black">

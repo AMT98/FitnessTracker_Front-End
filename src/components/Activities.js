@@ -14,12 +14,21 @@ const Activities = () => {
     fetchActivities();
   }, []);
   // console.log(activities);
+  // let box = document.querySelector(".container");
+  // const prevBtn = () => {
+  //   let width = box.clientWidth;
+  //   box.scrollLeft = box.scrollLeft - width;
+  // };
+  // const nextBtn = () => {
+  //   let width = box.clientWidth;
+  //   box.scrollLeft = box.scrollLeft + width;
+  // };
   return (
     <>
       <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%]">
         Activities
       </h1>
-      <div className="flex flex-row h-screen w-screen gap-6 flex-wrap">
+      <div className="flex flex-row h-screen w-screen gap-6 flex-wrap ">
         {activities.map((activity) => (
           <div
             key={activity.id}
@@ -38,7 +47,6 @@ const Activities = () => {
           </div>
         ))}
       </div>
-      
     </>
   );
 };
