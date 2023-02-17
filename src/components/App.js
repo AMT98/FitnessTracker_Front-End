@@ -6,6 +6,8 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Register from "./Register";
 import "./app.css";
+import Company from "./Company";
+import Policy from "./Policy";
 import Activities from "./Activities";
 import Routines from "./Routines"
 
@@ -46,7 +48,16 @@ const App = () => {
             />} />
           </Routes>
         </div>
-        <Footer />
+        <Footer>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/careers" element={<Company />} />
+            <Route path="/policy" element={<Policy />} />
+          </Routes>
+        </div>
+        </Footer>
       </Router>
     </>
   );
