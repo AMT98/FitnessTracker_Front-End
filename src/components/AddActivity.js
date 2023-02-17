@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { createActivities } from "../api/api";
 import Modal from "./Modal";
@@ -6,12 +6,19 @@ import Modal from "./Modal";
 const AddActivity = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [token, setToken] = useState("");
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    setToken(token);
+  }, []);
 
   const handleAddActivity = async (e) => {
     e.preventDefault();
     try {
-      const response = await createActivities(name, description);
+      const response = await createActivities(name, description, token);
       console.log(response);
+      setName("");
+      setDescription("");
     } catch (error) {
       console.log(error);
     }
@@ -23,9 +30,11 @@ const AddActivity = () => {
       submitBtnText="Create"
       handleSubmit={handleAddActivity}
     >
-      <form className="">
-        <label>Name:</label>
+      <form className="flex flex-col min-w-[300px] min-h-[200px] " required>
+        <label className="text-lg">Name:</label>
         <input
+          className="h-[50px] bg-gray-300 text-md rounded-xl p-3"
+          placeholder="Enter activity name"
           type="text"
           name="name"
           value={name}
@@ -33,8 +42,10 @@ const AddActivity = () => {
           required
         ></input>
 
-        <label>Description:</label>
+        <label className="text-lg">Description:</label>
         <textarea
+          className="h-[80px] bg-gray-300 text-md rounded-xl p-3"
+          placeholder="Add description here"
           type="text"
           name="description"
           value={description}

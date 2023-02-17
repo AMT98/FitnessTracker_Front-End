@@ -25,12 +25,12 @@ const Activities = () => {
   //   box.scrollLeft = box.scrollLeft + width;
   // };
   return (
-    <div className="bg-black">
+    <div className="bg-black items-center justify-center flex p-6 flex-col h-screen w-screen">
       <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
       <AddActivity />
-      <div className="flex flex-row h-screen w-screen gap-6 flex-wrap ">
+      <div className="flex flex-row gap-6 flex-wrap items-center justify-center mt-6">
         {activities.map((activity) => (
           <div
             key={activity.id}
