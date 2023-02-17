@@ -6,30 +6,46 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Register from "./Register";
 import "./app.css";
-import About from "./About";
-import Training from "./Training";
 import Company from "./Company";
 import Policy from "./Policy";
+import Activities from "./Activities";
+import Routines from "./Routines"
 
 const App = () => {
   const [token, setToken] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    let storedtoken = localStorage.getItem("token");
-    setToken(storedtoken);
-  }, []);
+    if (!token) {
+      setIsLoggedIn(false);
+    } else {
+      const storedToken = localStorage.getItem("token");
+      setToken(storedToken);
+      setIsLoggedIn(true);
+    }
+  }, [isLoggedIn, token]);
   return (
     <>
       <Router>
-        <NavBar 
-        token = {token}/>
+        <NavBar
+          token={token}
+          setToken={setToken}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
         <div>
           <Routes>
-            <Route path="/about" element={<About />} />
-            <Route path="/training" element={<Training />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/routines" element={<Routines />} />
+            <Route path="/" element={<Home 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            />} />
           </Routes>
         </div>
         <Footer>

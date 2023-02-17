@@ -24,8 +24,8 @@ const Activities = () => {
   //   box.scrollLeft = box.scrollLeft + width;
   // };
   return (
-    <>
-      <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%]">
+    <div className="bg-black">
+      <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
       <div className="flex flex-row h-screen w-screen gap-6 flex-wrap ">
@@ -47,7 +47,7 @@ const Activities = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
