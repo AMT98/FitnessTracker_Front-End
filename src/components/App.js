@@ -11,21 +11,34 @@ import Training from "./Training";
 
 const App = () => {
   const [token, setToken] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    let storedtoken = localStorage.getItem("token");
-    setToken(storedtoken);
-  }, []);
+    if (!token) {
+      setIsLoggedIn(false);
+    } else {
+      const storedToken = localStorage.getItem("token");
+      setToken(storedToken);
+      setIsLoggedIn(true);
+    }
+  }, [isLoggedIn, token]);
   return (
     <>
       <Router>
-        <NavBar 
-        token = {token}/>
+        <NavBar
+          token={token}
+          setToken={setToken}
+          isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn}
+        />
         <div>
           <Routes>
             <Route path="/about" element={<About />} />
             <Route path="/training" element={<Training />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Home />} />
           </Routes>
