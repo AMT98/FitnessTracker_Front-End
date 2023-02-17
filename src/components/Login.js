@@ -5,18 +5,23 @@ import gym from "../assets/gym.jpg";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [token, setToken] = useState("");
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const login = await fetchLogin(username, password);
       if (login.success) {
-        setUsername("");
-        setPassword("");
-        localStorage.setItem("token", login.token);
+        console.log(login);
       }
+      localStorage.setItem("token", login.token);
+      setUsername("");
+      setPassword("");
     } catch (error) {
       console.log(error);
     }
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
   };
   return (
     <>
