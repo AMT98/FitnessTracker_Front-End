@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import heroImg from "../assets/heroPageModel.png";
 import { NavLink } from "react-router-dom";
 
-const Home = () => {
+const Home = (props) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, [props.isLoggedIn, props.setIsLoggedIn]);
   return (
     <>
       <div className="bg-[#000000] flex  flex-col md:flex-row gap-11 h-screen w-screen">
@@ -23,18 +29,20 @@ const Home = () => {
             true badass. Sign up today and join the revolution of fitness
             warriors who are transforming their bodies and their lives.
           </h4>
-          <div className="flex flex-row gap-4 items-center">
-            <NavLink to="/login">
-              <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] text-[#E3FFA8] font-bold duration-300 rounded-xl text-xs md:text-lg hover:text-[#6ED8B4]">
-                Sign In
-              </button>
-            </NavLink>
-            <NavLink to="/register">
-              <button className="border p-3 md:p-4 border-[#6ED8B4] font-bold hover:border-[#E3FFA8] text-[#E3FFA8] duration-300 rounded-xl text-xs md:text-lg hover:text-[#6ED8B4]">
-                Become a Member
-              </button>
-            </NavLink>
-          </div>
+          {!isLoggedIn ? (
+            <div className="flex flex-row gap-4 items-center">
+              <NavLink to="/login">
+                <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] text-[#E3FFA8] font-bold duration-300 rounded-xl text-xs md:text-lg hover:text-[#6ED8B4]">
+                  Sign In
+                </button>
+              </NavLink>
+              <NavLink to="/register">
+                <button className="border p-3 md:p-4 border-[#6ED8B4] font-bold hover:border-[#E3FFA8] text-[#E3FFA8] duration-300 rounded-xl text-xs md:text-lg hover:text-[#6ED8B4]">
+                  Become a Member
+                </button>
+              </NavLink>
+            </div>
+          ) : null}
         </div>
         <div>
           <img src={heroImg} alt="heroImg" className="hidden md:block" />

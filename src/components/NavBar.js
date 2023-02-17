@@ -39,7 +39,6 @@ const NavBar = (props) => {
       link: "shop gear",
     },
   ];
-  console.log(props.isLoggedIn);
   return (
     <div className="flex justify-between items-center w-full h-20 px-4 text-[#E3FFA8] bg-[#0F0F0F] z-40 sticky ">
       <div>

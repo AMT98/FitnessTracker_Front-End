@@ -40,7 +40,10 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
             />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home 
+            isLoggedIn={isLoggedIn}
+            setIsLoggedIn={setIsLoggedIn}
+            />} />
           </Routes>
         </div>
         <Footer />
