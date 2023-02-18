@@ -55,7 +55,7 @@
   }
   
   .loading .message {
-    min-width: 480px;
+    min-width: 350px;
     padding: 3rem;
   
     box-shadow: 0 2px 8px black;

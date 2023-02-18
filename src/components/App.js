@@ -58,7 +58,9 @@ const App = () => {
             />
             <Route
               path="/activities"
-              element={<Activities setIsLoading={setIsLoading} />}
+              element={
+                <Activities setIsLoading={setIsLoading} isLoading={isLoading} />
+              }
             />
             <Route
               path="/routines"

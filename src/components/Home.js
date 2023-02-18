@@ -28,7 +28,7 @@ const Home = (props) => {
             who are transforming their bodies and their lives.
           </h4>
           {!isLoggedIn ? (
-            <div className="flex flex-row gap-4 items-center">
+            <div className="flex flex-row gap-4 items-center mb-[10%]">
               <NavLink to="/login">
                 <button className="border p-3 md:p-4 md:px-6 border-[#6ED8B4] hover:border-[#E3FFA8] text-[#E3FFA8] font-bold duration-300 rounded-xl text-xs md:text-lg hover:text-[#6ED8B4]">
                   Sign In
