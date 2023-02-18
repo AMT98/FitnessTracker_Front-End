@@ -9,7 +9,7 @@ import "./app.css";
 import Company from "./Company";
 import Policy from "./Policy";
 import Activities from "./Activities";
-import Routines from "./Routines"
+import Routines from "./Routines";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -35,17 +35,29 @@ const App = () => {
         />
         <div>
           <Routes>
-            <Route path="/login" element={<Login 
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            />} />
-            <Route path="/register" element={<Register />} />
+            <Route
+              path="/login"
+              element={
+                <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <Register
+                  isLoggedIn={isLoggedIn}
+                  setIsLoggedIn={setIsLoggedIn}
+                />
+              }
+            />
             <Route path="/activities" element={<Activities />} />
             <Route path="/routines" element={<Routines />} />
-            <Route path="/" element={<Home 
-            isLoggedIn={isLoggedIn}
-            setIsLoggedIn={setIsLoggedIn}
-            />} />
+            <Route
+              path="/"
+              element={
+                <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              }
+            />
           </Routes>
         </div>
         {/* <Footer>

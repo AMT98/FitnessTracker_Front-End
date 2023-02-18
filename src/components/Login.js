@@ -37,20 +37,19 @@ const Login = (props) => {
               {errorMsg}
             </h1>
           </div>
-          {props.setIsLoggedIn ? (
-            <label>
-              <input
-                className=" flex flex-col text-xl border rounded-xl py-4 px-2 text-white bg-black border-[#6ED8B4]"
-                type="text"
-                placeholder="Username*"
-                maxLength="10"
-                required
-                autoFocus
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              ></input>
-            </label>
-          ) : null}
+          <label>
+            <input
+              className=" flex flex-col text-xl border rounded-xl py-4 px-2 text-white bg-black border-[#6ED8B4]"
+              type="text"
+              placeholder="Username*"
+              maxLength="10"
+              required
+              autoFocus
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            ></input>
+          </label>
+
           <label className="mt-3">
             <input
               className="flex flex-col text-xl border rounded-xl py-4 px-2 text-white bg-black  border-[#6ED8B4]"

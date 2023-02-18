@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import { fetchRegister } from "../api/api";
 import videoBg from "../assets/bgvideo.mp4";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       console.log(username);
       console.log(password);
       const register = await fetchRegister(username, password);
-      if (register.success) {
-        console.log(register);
+      if (register.error) {
+        setErrorMsg(register.message);
+      } else {
+        props.setIsLoggedIn(true);
+        setErrorMsg("");
+        navigate("/");
       }
       localStorage.setItem("token", register.token);
       setUsername("");
@@ -31,6 +38,11 @@ const Register = () => {
           <h1 className="text-[#E3FFA8] capitalize text-6xl font-bold mb-6">
             Sign up
           </h1>
+          <div>
+            <h1 className="text-red-600 text-xl font-bold  flex justify-center items-center realtive uppercase border border-transparent bg-white mb-2">
+              {errorMsg}
+            </h1>
+          </div>
           <label>
             <input
               className=" flex flex-col text-xl border rounded-xl py-4 px-2 bg-black text-white border-[#6ED8B4] "
