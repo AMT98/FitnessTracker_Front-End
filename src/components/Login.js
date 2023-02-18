@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fetchLogin } from "../api/api";
 import gym from "../assets/gym.jpg";
 import { useNavigate } from "react-router-dom";
-const Login = (props) => {
+const Login = ({setIsLoading, setIsLoggedIn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("Please enter username & password");
@@ -10,13 +10,14 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
     try {
       const login = await fetchLogin(username, password);
       if (login.error) {
         console.log(login.message);
         setErrorMsg(login.message);
       } else {
-        props.setIsLoggedIn(true);
+        setIsLoggedIn(true);
         setErrorMsg("");
         navigate("/");
       }
@@ -25,6 +26,8 @@ const Login = (props) => {
       setPassword("");
     } catch (error) {
       console.log(error);
+    }finally{
+      setIsLoading(false)
     }
   };
   return (

@@ -4,16 +4,22 @@ import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
 import AddActivity from "./AddActivity";
-const Activities = () => {
+const Activities = ({ setIsLoading }) => {
   const [activities, setActivities] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const fetchActivities = async () => {
-      const allActivities = await fetchAllActivities();
-      setActivities(allActivities);
-    };
-    fetchActivities();
+    setIsLoading(true);
+    try {
+      const fetchActivities = async () => {
+        const allActivities = await fetchAllActivities();
+        setActivities(allActivities);
+      };
+      fetchActivities();
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   }, [fetchAllActivities()]);
 
   const handleSearchSubmit = (e) => {
@@ -36,6 +42,19 @@ const Activities = () => {
         Activities
       </h1>
       <form onSubmit={handleSearchSubmit} className="my-[5%] md:my-[1%]">
+        <div className="absolute pointer-events-auto ...">
+          <svg
+            className="absolute text-slate-800 h-5 w-5 mt-[10px] ml-[5px]"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
         <label>
           <input
             className="px-8 py-2 rounded-xl flex items-center justify-center"
@@ -46,7 +65,9 @@ const Activities = () => {
           ></input>
         </label>
       </form>
-      {localStorage.getItem("token") && <AddActivity />}
+      {localStorage.getItem("token") && (
+        <AddActivity setIsLoading={setIsLoading} />
+      )}
       <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
         {activities
           .filter((value) => {

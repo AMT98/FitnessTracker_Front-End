@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createActivities } from "../api/api";
 import Modal from "./Modal";
 
-const AddActivity = () => {
+const AddActivity = ({ setIsLoading }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [token, setToken] = useState("");
@@ -17,6 +17,7 @@ const AddActivity = () => {
 
   const handleAddActivity = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await createActivities(name, description, token);
       if (response.error) {
@@ -29,6 +30,8 @@ const AddActivity = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
@@ -37,10 +40,13 @@ const AddActivity = () => {
       modalTitle="Create Activity"
       submitBtnText="Create"
       handleSubmit={handleAddActivity}
-      showModal= {showModal}
-      setShowModal = {setShowModal}
+      showModal={showModal}
+      setShowModal={setShowModal}
     >
-      <form className="flex flex-col min-w-[300px] min-h-[200px] " required>
+      <form
+        className="flex flex-col min-w-[300px] min-h-[200px]"
+        required
+      >
         <label className="text-lg">Name:</label>
         <input
           className="h-[50px] bg-gray-300 text-md rounded-xl p-3"

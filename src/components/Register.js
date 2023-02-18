@@ -3,7 +3,7 @@ import { fetchRegister } from "../api/api";
 import videoBg from "../assets/bgvideo.mp4";
 import { useNavigate } from "react-router-dom";
 
-const Register = (props) => {
+const Register = ({ setIsLoading, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
@@ -11,6 +11,7 @@ const Register = (props) => {
   const navigate = useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       console.log(username);
       console.log(password);
@@ -18,7 +19,7 @@ const Register = (props) => {
       if (register.error) {
         setErrorMsg(register.message);
       } else {
-        props.setIsLoggedIn(true);
+        setIsLoggedIn(true);
         setErrorMsg("");
         navigate("/");
       }
@@ -27,13 +28,18 @@ const Register = (props) => {
       setPassword("");
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
     const storedToken = localStorage.getItem("token");
     setToken(storedToken);
   };
   return (
     <>
-      <form onSubmit={handleRegister} className="h-screen w-screen bg-black flex flex-col items-center justify-center">
+      <form
+        onSubmit={handleRegister}
+        className="h-screen w-screen bg-black flex flex-col items-center justify-center"
+      >
         <div className=" absolute h-full  z-10 flex flex-col items-center justify-center">
           <h1 className="text-[#E3FFA8] capitalize text-6xl font-bold mb-6">
             Sign up

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Modal = ({
   modalTitle,
@@ -6,14 +6,13 @@ const Modal = ({
   children: Children,
   submitBtnText,
   handleSubmit,
-  showModal, 
-  setShowModal
+  showModal,
+  setShowModal,
 }) => {
-
   return (
     <>
       <button
-        className="bg-[#6ED8B4] text-black active:bg-[#5CEACA] font-bold  text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        className="bg-[#6ED8B4] text-black active:bg-[#5CEACA] font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(true)}
       >
@@ -21,7 +20,7 @@ const Modal = ({
       </button>
       {showModal ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto- fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="justify-center items-center flex overflow-x-hidden backdrop-blur-[5px] overflow-y-auto- fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative m-auto max-w-md">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
