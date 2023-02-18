@@ -40,9 +40,9 @@ const NavBar = (props) => {
     },
   ];
   return (
-    <div className="flex justify-between items-center w-full h-20 px-4 text-[#E3FFA8] bg-[#0F0F0F] z-40 sticky ">
+    <div className="flex justify-between items-center w-full h-20 px-4 text-[#E3FFA8] bg-gray-900 z-40 fixed ">
       <div>
-        <h2 className="text-xl md:text-4xl font-signature hover:text-[#6ED8B4] ml-2 text-[#E3FFA8] cursor-pointer">
+        <h2 className="text-xl md:text-4xl font-signature hover:text-[#6ED8B4] m-2 text-[#E3FFA8] cursor-pointer">
           GitFit
         </h2>
       </div>

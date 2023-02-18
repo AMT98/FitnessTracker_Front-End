@@ -13,15 +13,15 @@ const Home = (props) => {
   }, [props.isLoggedIn, props.setIsLoggedIn]);
   return (
     <>
-      <div className="bg-[#000000] flex flex-col md:flex-row gap-11 h-screen w-screen">
+      <div className="bg-slate-900 flex flex-col md:flex-row gap-11 h-screen w-screen pt-4">
         <div className="flex md:w-auto mt-[4%] flex-col items-center ">
-          <h1 className="text-4xl md:text-7xl text-[#6ED8B4] font-bold capitalize mb-[5%]">
+          <h1 className="text-4xl md:text-7xl text-[#6ED8B4] font-bold capitalize mb-[2%] mt-10 md:mt-3">
             GitFit fitness club
           </h1>
-          <h2 className="md:text-4xl text-lg text-[#E3FFA8] font-bold capitalize mb-[3%] ml-6 md:ml-0">
+          <h2 className="md:text-4xl text-lg text-[#E3FFA8] font-bold capitalize mb-[2%] ml-6 md:ml-0">
             Ignite Your Inner Fire and Conquer Your Fitness Goals
           </h2>
-          <h4 className="text-gray-400 font-bold text-md md:text-lg mb-[3%] w-auto md:w-[60%] mx-6 md:ml-0">
+          <h4 className="text-gray-400 font-bold text-md md:text-lg mb-[3%] w-auto md:w-[50%] mx-6 md:mx-0">
             Are you ready to unleash your inner badass and dominate your fitness
             journey like a true champion? It's time to ignite your inner fire
             and take control of your health and wellbeing with the help of

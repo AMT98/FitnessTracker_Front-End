@@ -33,7 +33,7 @@ const App = () => {
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
         />
-        <div>
+        <div className="overflow-x-hidden">
           <Routes>
             <Route
               path="/login"

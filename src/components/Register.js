@@ -7,7 +7,7 @@ const Register = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("Please enter username & password");
   const navigate = useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
