@@ -100,7 +100,10 @@ const NavBar = (props) => {
                 </NavLink>
               </li>
             ))}
-            <div className="flex flex-col gap-2 md:gap-5 mr-[33%]">
+            <div
+              className="flex flex-col gap-2 md:gap-5 mr-[33%]"
+              onClick={() => setNav(!nav)}
+            >
               <NavLink to="/login">
                 <button className="border py-3 px-11 md:p-4 border-[#6ED8B4] hover:scale-105 hover:border-[#E3FFA8] duration-300 rounded-xl text-xs md:text-md hover:text-[#6ED8B4]">
                   Sign In
