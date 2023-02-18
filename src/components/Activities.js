@@ -29,7 +29,7 @@ const Activities = () => {
       <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
-      <AddActivity />
+      {localStorage.getItem("token") && <AddActivity />}
       <div className="flex flex-row gap-6 flex-wrap items-center justify-center mt-6">
         {activities.map((activity) => (
           <div

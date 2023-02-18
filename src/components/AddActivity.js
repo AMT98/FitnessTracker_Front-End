@@ -8,6 +8,7 @@ const AddActivity = () => {
   const [description, setDescription] = useState("");
   const [token, setToken] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -24,6 +25,7 @@ const AddActivity = () => {
       } else {
         setName("");
         setDescription("");
+        setShowModal(false);
       }
     } catch (error) {
       console.log(error);
@@ -35,6 +37,8 @@ const AddActivity = () => {
       modalTitle="Create Activity"
       submitBtnText="Create"
       handleSubmit={handleAddActivity}
+      showModal= {showModal}
+      setShowModal = {setShowModal}
     >
       <form className="flex flex-col min-w-[300px] min-h-[200px] " required>
         <label className="text-lg">Name:</label>

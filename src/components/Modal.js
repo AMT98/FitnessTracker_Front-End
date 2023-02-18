@@ -6,8 +6,10 @@ const Modal = ({
   children: Children,
   submitBtnText,
   handleSubmit,
+  showModal, 
+  setShowModal
 }) => {
-  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <button
@@ -36,7 +38,6 @@ const Modal = ({
                     type="button"
                     onClick={(e) => {
                       handleSubmit(e);
-                      setShowModal(false);
                     }}
                   >
                     {submitBtnText}

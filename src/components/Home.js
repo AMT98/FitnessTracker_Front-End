@@ -21,7 +21,7 @@ const Home = (props) => {
           <h2 className="md:text-4xl text-lg text-[#E3FFA8] font-bold capitalize mb-[3%]">
             Ignite Your Inner Fire and Conquer Your Fitness Goals
           </h2>
-          <h4 className="text-[#E3FFA8] text-md md:text-lg mb-[3%]">
+          <h4 className="text-white font-bold w-auto text-md md:text-lg mb-[3%]">
             Are you ready to unleash your inner badass and dominate your fitness
             journey like a true champion? It's time to ignite your inner fire
             and take control of your health and wellbeing with the help of
