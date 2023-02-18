@@ -90,14 +90,14 @@ const NavBar = (props) => {
       {nav && (
         <>
           <ul className="ml-[33%] flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#3b3a3a] z-10 text-[#E3FFA8] overflow-">
-            {links.map(({ id, link }) => (
+            {links.map(({ id, link, path }) => (
               <li
                 key={id}
                 className="cursor-pointer capitalize py-4 text-2xl mr-[33%]"
               >
-                <Link onClick={() => setNav(!nav)} to={link} duration={500}>
+                <NavLink onClick={() => setNav(!nav)} to={path} duration={500}>
                   {link}
-                </Link>
+                </NavLink>
               </li>
             ))}
             <div className="flex flex-col gap-2 md:gap-5 mr-[33%]">
