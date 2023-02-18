@@ -31,8 +31,8 @@ const Activities = () => {
   // };
   // console.log(searchTerm);
   return (
-    <div className="bg-gradient-to-b from-gray-900 items-center justify-center flex p-6 flex-col h-auto w-full">
-      <h1 className="text-[#6ED8B4] text-6xl flex items-center justify-center mt-[17%] md:mt-[8%] mb-[1%] ">
+    <div className="bg-gradient-to-b from-gray-900  items-center justify-center flex p-6 flex-col h-auto w-full">
+      <h1 className="text-[#6ED8B4] text-6xl flex items-center justify-center mt-[17%] md:mt-[7%] mb-[1%] ">
         Activities
       </h1>
       <form onSubmit={handleSearchSubmit} className="my-[5%] md:my-[1%]">
@@ -65,7 +65,7 @@ const Activities = () => {
           .map((activity) => (
             <div
               key={activity.id}
-              className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[20%] w-[90%] shadow-lg h-[350px] shadow-[#6ED8B4] "
+              className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[350px] shadow-[#6ED8B4] "
             >
               <GiMuscleUp className="ml-[45%] mb-[15%]" size={30} />
 

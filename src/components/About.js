@@ -2,8 +2,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-gradient-to-b from-slate-900 to-slate-800 flex md:flex-col flex-row w-screen h-screen justify-center items-center">
-      <div className="w-[90%] md:w-[70%] p-4 text-gray-400 flex flex-col gap-8 ">
+    <div className="bg-slate-900 flex md:flex-col flex-row w-screen h-screen justify-center items-center pt-[20%] md:pt-[0%]">
+      <div className=" bg-gradient-to-b from-slate-800 to-slate-700 w-[90%] md:w-[70%] p-4 text-gray-400 flex flex-col gap-8 rounded-xl ">
         <h1 className="text-4xl md:text-8xl text-[#6ED8B4] font-bold ">About GitFit</h1>
         <h1 className="text-sm md:text-lg">
           GitFit is a web app designed to help you stay active and healthy by
