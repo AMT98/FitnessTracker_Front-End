@@ -7,6 +7,8 @@ const AddActivity = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [token, setToken] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
   useEffect(() => {
     let token = localStorage.getItem("token");
     setToken(token);
@@ -16,16 +18,20 @@ const AddActivity = () => {
     e.preventDefault();
     try {
       const response = await createActivities(name, description, token);
-      console.log(response);
-      setName("");
-      setDescription("");
+      if (response.error) {
+        setErrorMsg(response.message);
+        console.log(response);
+      } else {
+        setName("");
+        setDescription("");
+      }
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <Modal
-      modalTxt="Create Activity"
+      modalTxt={errorMsg}
       modalTitle="Create Activity"
       submitBtnText="Create"
       handleSubmit={handleAddActivity}

@@ -13,7 +13,7 @@ const Activities = () => {
       setActivities(allActivities);
     };
     fetchActivities();
-  }, []);
+  }, [fetchAllActivities()]);
   // console.log(activities);
   // let box = document.querySelector(".container");
   // const prevBtn = () => {
@@ -25,7 +25,7 @@ const Activities = () => {
   //   box.scrollLeft = box.scrollLeft + width;
   // };
   return (
-    <div className="bg-black items-center justify-center flex p-6 flex-col h-screen w-screen">
+    <div className="bg-black items-center justify-center flex p-6 flex-col h-full w-full">
       <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
@@ -34,7 +34,7 @@ const Activities = () => {
         {activities.map((activity) => (
           <div
             key={activity.id}
-            className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] w-[20%] h-[35%] shadow-lg  shadow-[#6ED8B4] "
+            className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] w-[20%] shadow-lg h-[350px] shadow-[#6ED8B4] "
           >
             <GiMuscleUp className="ml-[45%] mb-[15%]" size={30} />
 

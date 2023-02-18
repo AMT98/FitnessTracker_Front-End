@@ -48,7 +48,7 @@ const App = () => {
             />} />
           </Routes>
         </div>
-        <Footer>
+        {/* <Footer>
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -57,7 +57,7 @@ const App = () => {
             <Route path="/policy" element={<Policy />} />
           </Routes>
         </div>
-        </Footer>
+        </Footer> */}
       </Router>
     </>
   );
