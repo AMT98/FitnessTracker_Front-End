@@ -39,7 +39,7 @@ const Register = (props) => {
             Sign up
           </h1>
           <div>
-            <h1 className="text-red-600 text-sm md:text-xl font-bold  flex justify-center items-center realtive border border-transparent bg-black mb-2 p-2 rounded-xl">
+            <h1 className="text-red-600 text-sm font-bold  flex justify-center items-center realtive border border-transparent bg-black mb-2 p-2 rounded-xl">
               {errorMsg}
             </h1>
           </div>

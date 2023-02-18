@@ -29,11 +29,14 @@ const Login = (props) => {
   };
   return (
     <>
-      <form onSubmit={handleLogin} className="h-screen w-screen bg-black">
-        <div className=" absolute h-screen top-0 flex flex-col items-center justify-center ml-[23%] md:ml-[40%] ">
+      <form
+        onSubmit={handleLogin}
+        className="h-screen w-screen bg-black flex flex-col items-center justify-center"
+      >
+        <div className=" absolute h-screen top-0  flex flex-col items-center justify-center ">
           <h1 className="text-[#E3FFA8] text-6xl font-bold mb-6">Log In</h1>
           <div>
-            <h1 className="text-red-600 text-xl font-bold  flex justify-center items-center realtive uppercase border border-transparent bg-white mb-2">
+            <h1 className="text-red-600 text-sm font-bold  flex justify-center items-center realtive border border-transparent bg-black mb-2 p-2 rounded-xl">
               {errorMsg}
             </h1>
           </div>
