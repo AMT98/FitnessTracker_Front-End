@@ -26,15 +26,15 @@ const Activities = () => {
   // };
   return (
     <div className="bg-black items-center justify-center flex p-6 flex-col h-full w-full">
-      <h1 className="text-[#6ED8B4] text-4xl flex items-center justify-center mb-[2%] ">
+      <h1 className="text-[#6ED8B4] text-6xl flex items-center justify-center mb-[2%] ">
         Activities
       </h1>
       {localStorage.getItem("token") && <AddActivity />}
-      <div className="flex flex-row gap-6 flex-wrap items-center justify-center mt-6">
+      <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6">
         {activities.map((activity) => (
           <div
             key={activity.id}
-            className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] w-[20%] shadow-lg h-[350px] shadow-[#6ED8B4] "
+            className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[20%] w-[90%] shadow-lg h-[350px] shadow-[#6ED8B4] "
           >
             <GiMuscleUp className="ml-[45%] mb-[15%]" size={30} />
 

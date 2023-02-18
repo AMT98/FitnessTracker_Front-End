@@ -2,9 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="bg-[#000000] flex md:flex-col flex-row w-screen h-screen">
-      <div className="w-[50%] ml-[25%] p-4 text-[#E3FFA8] flex flex-col gap-8 items-center">
-        <h1 className="text-7xl text-[#6ED8B4] font-bold ">About GitFit</h1>
+    <div className="bg-[#000000] flex md:flex-col flex-row w-screen h-screen justify-center items-center">
+      <div className="w-[90%] md:w-[70%] p-4 text-gray-400 flex flex-col gap-8 ">
+        <h1 className="text-4xl md:text-8xl text-[#6ED8B4] font-bold ">About GitFit</h1>
         <h1 className="text-sm md:text-lg">
           GitFit is a web app designed to help you stay active and healthy by
           providing a variety of workout routines and activities that fit your
