@@ -196,6 +196,9 @@ export const attachActivityToRoutine = async (
 ) => {
   const res = await fetch(`${APIURL}/routines/${routineID}/activities`, {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       activityId: `${activityId}`,
       count: `${count}`,

@@ -116,19 +116,34 @@ const Routines = ({ setIsLoading }) => {
               .map((routine) => (
                 <div
                   key={routine.id}
-                  className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[350px] shadow-[#6ED8B4] "
+                  className="flex flex-col text-xs border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[250px] min-w-[350px] shadow-lg h-[550px] shadow-[#6ED8B4] "
                 >
                   <h3 className="capitalize text-[#018956] flex justify-end">
                     {routine.creatorName}
                   </h3>
-                  <GiMuscleUp className="ml-[45%] mb-[15%]" size={30} />
+                  <GiMuscleUp className="ml-[45%] mb-[5%]" size={30} />
 
-                  <h1 className="uppercase mb-[20px]">
+                  <h1 className="uppercase mb-[2px]">
                     {<MdFitnessCenter />} {routine.name}
                   </h1>
 
                   <FaHeartbeat />
                   <h3 className="capitalize text-[#018956]">{routine.goal}</h3>
+                  <h1 className="self-center">Activites</h1>
+                  {routine.activities &&
+                    routine.activities.map((activity) => (
+                      <div
+                        key={activity.routineActivityId}
+                        className="flex-col p-1 border border-gray-900"
+                      >
+                        <p>Name: {activity.name}</p>
+                        <hr></hr>
+                        <p>Count: {activity.count} reps</p>
+                        <hr></hr>
+                        <p>Duration: {activity.duration} minutes</p>
+                        <hr></hr>
+                      </div>
+                    ))}
                 </div>
               ))}
           </div>

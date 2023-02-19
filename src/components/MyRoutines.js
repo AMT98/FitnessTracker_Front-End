@@ -6,18 +6,16 @@ import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
 import DeleteRoutine from "./DeleteRoutine";
-import { NavLink } from "react-router-dom";
+import RoutineActivities from "./RoutineActivities";
 
 const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
   const [routines, setRoutines] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [username, setUserName] = useState(localStorage.getItem("username"));
-  console.log(routineID);
   const fetchRoutines = async () => {
     setIsLoading(true);
     try {
       const data = await fetchRoutinesByUser(username);
-      console.log(data);
       setRoutines(data);
     } catch (error) {
       console.log(error);
@@ -28,7 +26,6 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
   useEffect(() => {
     fetchRoutines();
   }, [username]);
-
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
@@ -69,15 +66,6 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
               setRoutines={setRoutines}
               routines={routines}
             />
-            <ul>
-              <li>
-                <NavLink to="/routineactivities">
-                  <button className="border-2 border-black">
-                    Create routine with activity.
-                  </button>
-                </NavLink>
-              </li>
-            </ul>
 
             <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
               {routines
@@ -97,30 +85,50 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                 .map((routine) => (
                   <div
                     key={routine.id}
-                    className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[350px] shadow-[#6ED8B4] "
+                    className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[550px] shadow-[#6ED8B4] "
                   >
                     {setRoutineID(routine?.id)}
                     <h3 className="capitalize text-[#018956] flex justify-end">
                       {routine.creatorName}
                     </h3>
-                    <EditRoutine
-                      setIsLoading={setIsLoading}
-                      routineID={routineID}
-                    />
-                    <DeleteRoutine
-                      setIsLoading={setIsLoading}
-                      routineID={routineID}
-                    />
-                    <GiMuscleUp className="ml-[45%] mb-[15%]" size={30} />
-                    <h1 className="uppercase mb-[20px]">
+                    <div className="flex self-center no-wrap">
+                      <EditRoutine
+                        setIsLoading={setIsLoading}
+                        routineID={routineID}
+                      />
+                      <DeleteRoutine
+                        setIsLoading={setIsLoading}
+                        routineID={routineID}
+                      />
+                    </div>
+                    <div className="flex justify-center">
+                      <GiMuscleUp size={30} />
+                      <h1>My Routine</h1>
+                    </div>
+                    <h1 className="uppercase mb-[2px]">
                       {<MdFitnessCenter />} {routine.name}
                     </h1>
                     <FaHeartbeat />
                     <h3 className="capitalize text-[#018956]">
                       {routine.goal}
                     </h3>
+                    <h1 className="self-center">Activites</h1>
+                    <RoutineActivities routineID={routineID} />
+                    {routine.activities &&
+                      routine.activities.map((activity) => (
+                        <div
+                          key={activity.routineActivityId}
+                          className="flex-col p-1 border border-gray-900"
+                        >
+                          <p>Name: {activity.name}</p>
+                          <hr></hr>
+                          <p>Count: {activity.count} reps</p>
+                          <hr></hr>
+                          <p>Duration: {activity.duration} minutes</p>
+                          <hr></hr>
+                        </div>
+                      ))}
                   </div>
-                  // routine.creatorName === userName &&
                 ))}
             </div>
           </div>
