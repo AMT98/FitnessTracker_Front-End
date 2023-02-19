@@ -11,6 +11,7 @@ import Policy from "./Policy";
 import Activities from "./Activities";
 import Routines from "./Routines";
 import Loading from "./Loading";
+import MyRoutines from "./MyRoutines";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -71,6 +72,10 @@ const App = () => {
               element={
                 <Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               }
+            />
+            <Route
+              path="/myroutines"
+              element={<MyRoutines setIsLoading={setIsLoading} />}
             />
           </Routes>
         </div>

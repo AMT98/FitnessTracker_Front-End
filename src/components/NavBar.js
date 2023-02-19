@@ -36,7 +36,8 @@ const NavBar = (props) => {
     },
     {
       id: 4,
-      link: "shop gear",
+      link: "My Routines",
+      path: "/myroutines"
     },
   ];
   return (
