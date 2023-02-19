@@ -17,6 +17,7 @@ const App = () => {
   const [token, setToken] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [routineID, setRoutineID] = useState("");
 
   useEffect(() => {
     if (!token) {
@@ -76,7 +77,14 @@ const App = () => {
             />
             <Route
               path="/myroutines"
-              element={<MyRoutines setIsLoading={setIsLoading} token={token} />}
+              element={
+                <MyRoutines
+                  setIsLoading={setIsLoading}
+                  token={token}
+                  setRoutineID={setRoutineID}
+                  routineID={routineID}
+                />
+              }
             />
           </Routes>
         </div>

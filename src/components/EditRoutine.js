@@ -3,11 +3,10 @@ import { useState } from "react";
 import { editRoutine } from "../api/api";
 import Modal from "./Modal";
 
-const EditRoutine = ({ setIsLoading }) => {
+const EditRoutine = ({ setIsLoading, routineID }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
-  const [routineID, setRoutineID] = useState("");
   const [isPublic, setIsPublic] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -22,22 +21,16 @@ const EditRoutine = ({ setIsLoading }) => {
     setIsLoading(true);
 
     try {
-      const response = await editRoutine(
-        name,
-        goal,
-        isPublic,
-        routineID,
-        token
-      );
-      if (response.error) {
-        setErrorMsg(response.message);
-        console.log(response);
+      const data = await editRoutine(name, goal, isPublic, routineID, token);
+      if (data.error) {
+        setErrorMsg(data.message);
+        console.log(data);
       } else {
         setName("");
         setGoal("");
         setIsPublic(false);
         setShowModal(false);
-        console.log(response);
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -84,7 +77,7 @@ const EditRoutine = ({ setIsLoading }) => {
             id="public"
             name="public"
             value={isPublic}
-            onChange={() => setIsPublic(true)}
+            onChange={() => setIsPublic(!isPublic)}
           />
         </label>
       </form>
