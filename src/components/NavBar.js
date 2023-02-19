@@ -34,11 +34,6 @@ const NavBar = (props) => {
       link: "activities",
       path: "/activities",
     },
-    {
-      id: 4,
-      link: "My Routines",
-      path: "/myroutines"
-    },
   ];
   return (
     <div className="flex justify-between items-center w-full h-20 px-4 text-[#E3FFA8] bg-gray-900 z-40 fixed ">
@@ -58,6 +53,13 @@ const NavBar = (props) => {
             </NavLink>
           </li>
         ))}
+        {localStorage.getItem("token") && (
+          <li>
+            <NavLink to="./myroutines" duration={500}>
+              My Routines
+            </NavLink>
+          </li>
+        )}
       </ul>
       <div className="hidden md:flex gap-2 md:gap-5">
         <NavLink to="/login">

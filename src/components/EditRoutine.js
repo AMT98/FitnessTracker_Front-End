@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { createRoutine } from "../api/api";
+import { editRoutine } from "../api/api";
 import Modal from "./Modal";
 
 const EditRoutine = ({ setIsLoading }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
+  const [routineID, setRoutineID] = useState("");
   const [isPublic, setIsPublic] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -19,9 +20,15 @@ const EditRoutine = ({ setIsLoading }) => {
   const handleAddRoutine = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(isPublic);
+
     try {
-      const response = await createRoutine(name, goal, isPublic, token);
+      const response = await editRoutine(
+        name,
+        goal,
+        isPublic,
+        routineID,
+        token
+      );
       if (response.error) {
         setErrorMsg(response.message);
         console.log(response);
@@ -30,8 +37,8 @@ const EditRoutine = ({ setIsLoading }) => {
         setGoal("");
         setIsPublic(false);
         setShowModal(false);
+        console.log(response);
       }
-      console.log(isPublic);
     } catch (error) {
       console.log(error);
     } finally {

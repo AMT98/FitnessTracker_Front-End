@@ -26,17 +26,6 @@ const Activities = ({ setIsLoading, isLoading }) => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
-  // console.log(activities);
-  // let box = document.querySelector(".container");
-  // const prevBtn = () => {
-  //   let width = box.clientWidth;
-  //   box.scrollLeft = box.scrollLeft - width;
-  // };
-  // const nextBtn = () => {
-  //   let width = box.clientWidth;
-  //   box.scrollLeft = box.scrollLeft + width;
-  // };
-  // console.log(searchTerm);
   return (
     <>
       <div className="bg-gradient-to-b from-gray-900  items-center justify-center flex p-6 flex-col h-auto w-full">

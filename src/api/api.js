@@ -1,6 +1,6 @@
 //API provided by learn dot, we will change this link with our link.
-// const APIURL = "https://fitnesstrac-kr.herokuapp.com/api";
-const APIURL = "https://fitnesstracker-1bo4.onrender.com/api";
+const APIURL = "https://fitnesstrac-kr.herokuapp.com/api";
+// const APIURL = "https://fitnesstracker-1bo4.onrender.com/api";
 
 //POST register user
 export const fetchRegister = async (username, password) => {
@@ -52,10 +52,11 @@ export const fetchUser = async (token) => {
 
 // GET routines by user
 
-export const fetchRoutinesByUser = async (username) => {
-  const res = await fetch(`${APIURL}/${username}/routines`, {
+export const fetchRoutinesByUser = async (token, username) => {
+  const res = await fetch(`${APIURL}/users/${username}/routines`, {
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   });
   const json = await res.json();

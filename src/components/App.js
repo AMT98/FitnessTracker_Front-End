@@ -27,6 +27,7 @@ const App = () => {
       setIsLoggedIn(true);
     }
   }, [isLoggedIn, token]);
+
   return (
     <>
       <Router>
@@ -75,7 +76,7 @@ const App = () => {
             />
             <Route
               path="/myroutines"
-              element={<MyRoutines setIsLoading={setIsLoading} />}
+              element={<MyRoutines setIsLoading={setIsLoading} token={token} />}
             />
           </Routes>
         </div>

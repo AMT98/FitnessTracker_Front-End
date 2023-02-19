@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fetchLogin } from "../api/api";
 import gym from "../assets/gym.jpg";
 import { useNavigate } from "react-router-dom";
-const Login = ({setIsLoading, setIsLoggedIn}) => {
+const Login = ({ setIsLoading, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("Please enter username & password");
@@ -10,7 +10,7 @@ const Login = ({setIsLoading, setIsLoggedIn}) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     try {
       const login = await fetchLogin(username, password);
       if (login.error) {
@@ -22,12 +22,13 @@ const Login = ({setIsLoading, setIsLoggedIn}) => {
         navigate("/");
       }
       localStorage.setItem("token", login.token);
+      localStorage.setItem("username", login.user.username);
       setUsername("");
       setPassword("");
     } catch (error) {
       console.log(error);
-    }finally{
-      setIsLoading(false)
+    } finally {
+      setIsLoading(false);
     }
   };
   return (

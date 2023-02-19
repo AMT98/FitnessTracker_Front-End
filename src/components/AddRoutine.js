@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createRoutine } from "../api/api";
 import Modal from "./Modal";
 
-const AddRoutine = ({ setIsLoading }) => {
+const AddRoutine = ({ setIsLoading, setRoutines, routines }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
@@ -19,19 +19,18 @@ const AddRoutine = ({ setIsLoading }) => {
   const handleAddRoutine = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(isPublic);
     try {
-      const response = await createRoutine(name, goal, isPublic, token);
-      if (response.error) {
-        setErrorMsg(response.message);
-        console.log(response);
+      const data = await createRoutine(name, goal, isPublic, token);
+      if (data.error) {
+        setErrorMsg(data.message);
+        console.log(data);
       } else {
         setName("");
         setGoal("");
         setIsPublic(false);
         setShowModal(false);
+        setRoutines([...routines, data]);
       }
-      console.log(isPublic);
     } catch (error) {
       console.log(error);
     } finally {
