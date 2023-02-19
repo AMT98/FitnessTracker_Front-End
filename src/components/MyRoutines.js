@@ -10,17 +10,21 @@ const MyRoutines = ({ setIsLoading, token }) => {
   const [routines, setRoutines] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [username, setUserName] = useState(localStorage.getItem("username"));
-
+  const fetchRoutines = async () => {
+    setIsLoading(true);
+    try {
+      const data = await fetchRoutinesByUser(username);
+      console.log(data);
+      setRoutines(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   useEffect(() => {
     fetchRoutines();
   }, [username]);
-  const fetchRoutines = async () => {
-    if (username) {
-      const data = await fetchRoutinesByUser(token, username);
-      console.log(data);
-      setRoutines(data);
-    }
-  };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +61,11 @@ const MyRoutines = ({ setIsLoading, token }) => {
                 ></input>
               </label>
             </form>
-            <AddRoutine setIsLoading={setIsLoading} setRoutines={setRoutines} routines={routines}/>
+            <AddRoutine
+              setIsLoading={setIsLoading}
+              setRoutines={setRoutines}
+              routines={routines}
+            />
             <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
               {routines
                 .filter((value) => {

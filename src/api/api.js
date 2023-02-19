@@ -52,11 +52,10 @@ export const fetchUser = async (token) => {
 
 // GET routines by user
 
-export const fetchRoutinesByUser = async (token, username) => {
+export const fetchRoutinesByUser = async (username) => {
   const res = await fetch(`${APIURL}/users/${username}/routines`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
     },
   });
   const json = await res.json();
