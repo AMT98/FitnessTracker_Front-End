@@ -13,6 +13,7 @@ const Activities = ({ setIsLoading, isLoading }) => {
       const fetchActivities = async () => {
         const allActivities = await fetchAllActivities();
         setActivities(allActivities);
+        console.log(allActivities);
         setIsLoading(false);
       };
       fetchActivities();

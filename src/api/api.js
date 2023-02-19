@@ -188,8 +188,13 @@ export const deleteRoutine = async (routineID, token) => {
 
 //POST attach a single activity to a routine and prevents duplication
 
-export const attachActivityToRoutine = async (activityId, count, duration) => {
-  const res = await fetch(`${APIURL}/routines/${activityId}/activities`, {
+export const attachActivityToRoutine = async (
+  routineID,
+  activityId,
+  count,
+  duration
+) => {
+  const res = await fetch(`${APIURL}/routines/${routineID}/activities`, {
     method: "POST",
     body: JSON.stringify({
       activityId: `${activityId}`,

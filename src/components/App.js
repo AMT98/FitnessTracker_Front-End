@@ -12,6 +12,7 @@ import Activities from "./Activities";
 import Routines from "./Routines";
 import Loading from "./Loading";
 import MyRoutines from "./MyRoutines";
+import RoutineActivities from "./RoutineActivities";
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -86,6 +87,7 @@ const App = () => {
                 />
               }
             />
+            <Route path="/routineactivities" element={<RoutineActivities routineID={routineID}/>} />
           </Routes>
         </div>
         {/* <Footer>

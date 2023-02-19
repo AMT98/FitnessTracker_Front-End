@@ -6,6 +6,7 @@ import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
 import DeleteRoutine from "./DeleteRoutine";
+import { NavLink } from "react-router-dom";
 
 const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
   const [routines, setRoutines] = useState([]);
@@ -109,6 +110,15 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                     <h3 className="capitalize text-[#018956]">
                       {routine.goal}
                     </h3>
+                    <ul>
+                      <li>
+                        <NavLink to="/routineactivities"> 
+                        <button className="border-2 border-black">
+                          Create routine with activity.
+                        </button>
+                        </NavLink>
+                      </li>
+                    </ul>
                   </div>
                   // routine.creatorName === userName &&
                 ))}
