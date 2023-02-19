@@ -69,6 +69,15 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
               setRoutines={setRoutines}
               routines={routines}
             />
+            <ul>
+              <li>
+                <NavLink to="/routineactivities">
+                  <button className="border-2 border-black">
+                    Create routine with activity.
+                  </button>
+                </NavLink>
+              </li>
+            </ul>
 
             <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
               {routines
@@ -110,15 +119,6 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                     <h3 className="capitalize text-[#018956]">
                       {routine.goal}
                     </h3>
-                    <ul>
-                      <li>
-                        <NavLink to="/routineactivities"> 
-                        <button className="border-2 border-black">
-                          Create routine with activity.
-                        </button>
-                        </NavLink>
-                      </li>
-                    </ul>
                   </div>
                   // routine.creatorName === userName &&
                 ))}
