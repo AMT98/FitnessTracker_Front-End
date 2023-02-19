@@ -5,6 +5,7 @@ import { fetchRoutinesByUser } from "../api/api";
 import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
+import DeleteRoutine from "./DeleteRoutine";
 
 const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
   const [routines, setRoutines] = useState([]);
@@ -67,6 +68,7 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
               setRoutines={setRoutines}
               routines={routines}
             />
+
             <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
               {routines
                 .filter((value) => {
@@ -92,6 +94,10 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                       {routine.creatorName}
                     </h3>
                     <EditRoutine
+                      setIsLoading={setIsLoading}
+                      routineID={routineID}
+                    />
+                    <DeleteRoutine
                       setIsLoading={setIsLoading}
                       routineID={routineID}
                     />
