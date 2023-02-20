@@ -89,7 +89,7 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                     key={routine.id}
                     className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[650px] shadow-[#6ED8B4] "
                   >
-                    {setRoutineID(routine?.id)}
+                    {setRoutineID(routine)}
                     <h3 className="capitalize text-[#018956] flex justify-end">
                       {routine.creatorName}
                     </h3>
@@ -116,13 +116,6 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                     </h3>
                     <h1 className="self-center">Activites</h1>
                     <RoutineActivities routineID={routineID} />
-                    <div className="flex justify-center">
-                      <EditRoutineActivity
-                        setIsLoading={setIsLoading}
-                        routineID={routineID}
-                      />
-                      <DeleteRoutineActivity />
-                    </div>
                     {routine.activities &&
                       routine.activities.map((activity) => (
                         <div
@@ -135,6 +128,17 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                           <hr></hr>
                           <p>Duration: {activity.duration} minutes</p>
                           <hr></hr>
+                          <div className="flex justify-center">
+                            <EditRoutineActivity
+                              setIsLoading={setIsLoading}
+                              routineID={routineID}
+                              routineActivity={activity}
+                            />
+                            <DeleteRoutineActivity
+                              setIsLoading={setIsLoading}
+                              routineActivity={activity}
+                            />
+                          </div>
                         </div>
                       ))}
                   </div>

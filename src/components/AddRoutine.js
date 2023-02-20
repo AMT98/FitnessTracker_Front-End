@@ -7,7 +7,7 @@ const AddRoutine = ({ setIsLoading, setRoutines, routines }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
-  const [isPublic, setIsPublic] = useState(false);
+  const [isPublic, setIsPublic] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { editRoutineActivities } from "../api/api";
 import Modal from "./Modal";
 
-const EditRoutineActivity = ({ setIsLoading, routineActivityId }) => {
+const EditRoutineActivity = ({ setIsLoading, routineActivity }) => {
   const [count, setCount] = useState("");
   const [duration, setDuration] = useState("");
   const [token, setToken] = useState("");
@@ -23,7 +23,7 @@ const EditRoutineActivity = ({ setIsLoading, routineActivityId }) => {
       const data = await editRoutineActivities(
         count,
         duration,
-        routineActivityId,
+        routineActivity.routineActivityId,
         token
       );
       if (data.error) {

@@ -21,7 +21,7 @@ const EditRoutine = ({ setIsLoading, routineID }) => {
     setIsLoading(true);
 
     try {
-      const data = await editRoutine(name, goal, isPublic, routineID, token);
+      const data = await editRoutine(name, goal, isPublic, routineID?.id, token);
       if (data.error) {
         setErrorMsg(data.message);
         console.log(data);

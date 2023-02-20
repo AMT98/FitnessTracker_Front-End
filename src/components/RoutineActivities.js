@@ -17,7 +17,7 @@ const RoutineActivities = ({ routineID }) => {
     };
     fetchActivities();
   }, []);
-  // console.log(routineID, activityId, count, duration);
+  // console.log(routineID?.id, activityId, count, duration);
 
   const handleSubmit = async () => {
     try {
@@ -32,6 +32,7 @@ const RoutineActivities = ({ routineID }) => {
       } else {
         setCount("");
         setDuration("");
+        setShowModal(false);
       }
       console.log(routineActivity);
     } catch (error) {

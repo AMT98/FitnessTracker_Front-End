@@ -3,7 +3,7 @@ import { useState } from "react";
 import { deleteRoutine_Activity } from "../api/api";
 import Modal from "./Modal";
 
-const DeleteRoutineActivity = ({ setIsLoading, routineActivityId }) => {
+const DeleteRoutineActivity = ({ setIsLoading, routineActivity }) => {
   const [token, setToken] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -13,13 +13,14 @@ const DeleteRoutineActivity = ({ setIsLoading, routineActivityId }) => {
     setToken(token);
   }, []);
 
+  console.log(routineActivity.routineActivityId);
   const handleDeleteRoutine = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
       const data = await deleteRoutine_Activity(
-        routineActivityId,
+        routineActivity.routineActivityId,
         token,
         token
       );
