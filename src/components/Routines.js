@@ -17,38 +17,38 @@ const Routines = ({ setIsLoading }) => {
   const [editGoal, setEditGoal] = useState("");
   const [editIsPublic, setEditIsPublic] = useState(false);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const newRoutine = await createRoutine({
-      isPublic: true,
-      name: `${name}`,
-      goal: `${goal}`,
-    });
-    setRoutines([...routines, newRoutine]);
-    setName("");
-    setGoal("");
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const newRoutine = await createRoutine({
+  //     isPublic: true,
+  //     name: `${name}`,
+  //     goal: `${goal}`,
+  //   });
+  //   setRoutines([...routines, newRoutine]);
+  //   setName("");
+  //   setGoal("");
+  // };
 
-  const handleEditSubmit = async (event, routineId) => {
-    event.preventDefault();
-    const editedRoutine = await editRoutine(
-      editName,
-      editGoal,
-      editIsPublic,
-      routineId
-    );
+  // const handleEditSubmit = async (event, routineId) => {
+  //   event.preventDefault();
+  //   const editedRoutine = await editRoutine(
+  //     editName,
+  //     editGoal,
+  //     editIsPublic,
+  //     routineId
+  //   );
 
-    const editedRoutines = routines.map((routine) => {
-      if (routine.id === routineId) {
-        return editedRoutine;
-      }
-      return routine;
-    });
-    setRoutines(editedRoutines);
-    setEditName("");
-    setEditGoal("");
-    setEditIsPublic(false);
-  };
+  //   const editedRoutines = routines.map((routine) => {
+  //     if (routine.id === routineId) {
+  //       return editedRoutine;
+  //     }
+  //     return routine;
+  //   });
+  //   setRoutines(editedRoutines);
+  //   setEditName("");
+  //   setEditGoal("");
+  //   setEditIsPublic(false);
+  // };
 
   useEffect(() => {
     try {
