@@ -22,7 +22,7 @@ const RoutineActivities = ({ routineID }) => {
   const handleSubmit = async () => {
     try {
       const routineActivity = await attachActivityToRoutine(
-        routineID,
+        routineID.id,
         activityId,
         count,
         duration

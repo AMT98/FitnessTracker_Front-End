@@ -13,7 +13,6 @@ const DeleteRoutineActivity = ({ setIsLoading, routineActivity }) => {
     setToken(token);
   }, []);
 
-  console.log(routineActivity.routineActivityId);
   const handleDeleteRoutine = async (e) => {
     e.preventDefault();
     setIsLoading(true);
