@@ -18,7 +18,7 @@ const DeleteRoutine = ({ setIsLoading, routineID }) => {
     setIsLoading(true);
 
     try {
-      const data = await deleteRoutine(routineID, token);
+      const data = await deleteRoutine(routineID.id, token);
       if (data.error) {
         setErrorMsg(data.message);
         console.log(data);

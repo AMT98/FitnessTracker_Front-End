@@ -103,6 +103,16 @@ const NavBar = (props) => {
                 </NavLink>
               </li>
             ))}
+            {localStorage.getItem("token") && (
+              <li
+                className=" flex flex-col gap-2 md:gap-5 mr-[33%] p-2 text-xl"
+                onClick={() => setNav(!nav)}
+              >
+                <NavLink to="./myroutines" duration={500}>
+                  My Routines
+                </NavLink>
+              </li>
+            )}
             {!props.isLoggedIn && (
               <div
                 className="flex flex-col gap-2 md:gap-5 mr-[33%]"

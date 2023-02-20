@@ -50,7 +50,7 @@ const EditRoutineActivity = ({ setIsLoading, routineActivity }) => {
       showModal={showModal}
       setShowModal={setShowModal}
     >
-      <form classcount="flex flex-col min-w-[300px] min-h-[200px]" required>
+      <form className="flex flex-col min-w-[300px] min-h-[200px]" required>
         <label className="text2xl text-gray-400 m-2">
           Count (# of reps):
           <input

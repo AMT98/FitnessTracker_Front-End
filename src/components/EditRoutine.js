@@ -7,7 +7,7 @@ const EditRoutine = ({ setIsLoading, routineID }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
-  const [isPublic, setIsPublic] = useState(false);
+  const [isPublic, setIsPublic] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
 
@@ -21,7 +21,7 @@ const EditRoutine = ({ setIsLoading, routineID }) => {
     setIsLoading(true);
 
     try {
-      const data = await editRoutine(name, goal, isPublic, routineID?.id, token);
+      const data = await editRoutine(name, goal, isPublic, routineID.id, token);
       if (data.error) {
         setErrorMsg(data.message);
         console.log(data);

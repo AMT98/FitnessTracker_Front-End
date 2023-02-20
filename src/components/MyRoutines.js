@@ -87,7 +87,7 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                 .map((routine) => (
                   <div
                     key={routine.id}
-                    className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-[650px] shadow-[#6ED8B4] "
+                    className="flex flex-col border rounded-2xl border-[#6ED8B4] p-6 font-bold bg-[#E3FFA8] md:w-[350px] min-w-[350px] shadow-lg h-auto md:h-[650px] shadow-[#6ED8B4] "
                   >
                     <h3 className="capitalize text-[#018956] flex justify-end">
                       {routine.creatorName}
@@ -95,11 +95,11 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                     <div className="flex self-center no-wrap">
                       <EditRoutine
                         setIsLoading={setIsLoading}
-                        routineID={routineID}
+                        routineID={routine}
                       />
                       <DeleteRoutine
                         setIsLoading={setIsLoading}
-                        routineID={routineID}
+                        routineID={routine}
                       />
                     </div>
                     <div className="flex justify-center">
