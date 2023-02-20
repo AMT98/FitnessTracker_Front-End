@@ -13,8 +13,6 @@ const Register = ({ setIsLoading, setIsLoggedIn }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      console.log(username);
-      console.log(password);
       const register = await fetchRegister(username, password);
       if (register.error) {
         setErrorMsg(register.message);

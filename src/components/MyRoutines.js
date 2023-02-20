@@ -10,8 +10,7 @@ import RoutineActivities from "./RoutineActivities";
 import EditRoutineActivity from "./EditRoutineActivity";
 import DeleteRoutineActivity from "./DeleteRoutineActivity";
 
-const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
-  const [routines, setRoutines] = useState([]);
+const MyRoutines = ({ setIsLoading, routineID, routines, setRoutines }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [username, setUserName] = useState(localStorage.getItem("username"));
   const fetchRoutines = async () => {
@@ -27,7 +26,8 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
   };
   useEffect(() => {
     fetchRoutines();
-  }, [username]);
+  }, []);
+  useEffect(() => {}, [routines]);
   const handleSearchSubmit = (e) => {
     e.preventDefault();
   };
@@ -96,10 +96,15 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                       <EditRoutine
                         setIsLoading={setIsLoading}
                         routineID={routine}
+                        setRoutines={setRoutines}
+                        routines={routines}
                       />
                       <DeleteRoutine
                         setIsLoading={setIsLoading}
                         routineID={routine}
+                        setRoutines={setRoutines}
+                        routines={routines}
+                        username={username}
                       />
                     </div>
                     <div className="flex justify-center">
@@ -114,7 +119,11 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                       {routine.goal}
                     </h3>
                     <h1 className="self-center">Activites</h1>
-                    <RoutineActivities routineID={routine} />
+                    <RoutineActivities
+                      routineID={routine}
+                      setRoutines={setRoutines}
+                      routines={routines}
+                    />
                     {routine.activities &&
                       routine.activities.map((activity) => (
                         <div
@@ -132,10 +141,14 @@ const MyRoutines = ({ setIsLoading, routineID, setRoutineID }) => {
                               setIsLoading={setIsLoading}
                               routineID={routineID}
                               routineActivity={activity}
+                              setRoutines={setRoutines}
+                              routines={routines}
                             />
                             <DeleteRoutineActivity
                               setIsLoading={setIsLoading}
                               routineActivity={activity}
+                              setRoutines={setRoutines}
+                              routines={routines}
                             />
                           </div>
                         </div>

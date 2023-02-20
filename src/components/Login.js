@@ -14,7 +14,6 @@ const Login = ({ setIsLoading, setIsLoggedIn }) => {
     try {
       const login = await fetchLogin(username, password);
       if (login.error) {
-        console.log(login.message);
         setErrorMsg(login.message);
       } else {
         setIsLoggedIn(true);

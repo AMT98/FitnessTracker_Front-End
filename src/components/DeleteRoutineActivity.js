@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { deleteRoutine_Activity } from "../api/api";
 import Modal from "./Modal";
 
@@ -7,7 +8,7 @@ const DeleteRoutineActivity = ({ setIsLoading, routineActivity }) => {
   const [token, setToken] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
-
+  let navigate = useNavigate();
   useEffect(() => {
     let token = localStorage.getItem("token");
     setToken(token);
@@ -25,10 +26,9 @@ const DeleteRoutineActivity = ({ setIsLoading, routineActivity }) => {
       );
       if (data.error) {
         setErrorMsg(data.message);
-        console.log(data);
       } else {
         setShowModal(false);
-        console.log(data);
+        navigate("/routines");
       }
     } catch (error) {
       console.log(error);

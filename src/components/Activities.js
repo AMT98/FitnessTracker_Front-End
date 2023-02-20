@@ -4,8 +4,8 @@ import { GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import { FaHeartbeat } from "react-icons/fa";
 import AddActivity from "./AddActivity";
-const Activities = ({ setIsLoading, isLoading }) => {
-  const [activities, setActivities] = useState([]);
+import EditActivity from "./EditActivity";
+const Activities = ({ setIsLoading, activities, setActivities }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Activities = ({ setIsLoading, isLoading }) => {
           </label>
         </form>
         {localStorage.getItem("token") && (
-          <AddActivity setIsLoading={setIsLoading} />
+          <AddActivity setIsLoading={setIsLoading} activities={activities} setActivities={setActivities} />
         )}
         <div className="flex flex-col md:flex-row gap-6 flex-wrap items-center justify-center mt-6 h-full">
           {activities
@@ -91,6 +91,7 @@ const Activities = ({ setIsLoading, isLoading }) => {
                 <h3 className="capitalize text-[#018956]">
                   {activity.description}
                 </h3>
+                <EditActivity  activityId={activity}/>
               </div>
             ))}
         </div>

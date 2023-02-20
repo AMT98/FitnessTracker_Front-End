@@ -15,7 +15,7 @@ export const fetchRegister = async (username, password) => {
     }),
   });
   const json = await res.json();
-  console.log(json);
+
   return json;
 };
 
@@ -33,7 +33,7 @@ export const fetchLogin = async (username, password) => {
     }),
   });
   const json = await res.json();
-  console.log(json);
+
   return json;
 };
 

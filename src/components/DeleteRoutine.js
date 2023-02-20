@@ -2,11 +2,18 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { deleteRoutine } from "../api/api";
 import Modal from "./Modal";
-
-const DeleteRoutine = ({ setIsLoading, routineID }) => {
+import { useNavigate } from "react-router-dom";
+const DeleteRoutine = ({
+  setIsLoading,
+  routineID,
+  setRoutines,
+  routines,
+  username,
+}) => {
   const [token, setToken] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
+  let navigate = useNavigate();
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -21,10 +28,11 @@ const DeleteRoutine = ({ setIsLoading, routineID }) => {
       const data = await deleteRoutine(routineID.id, token);
       if (data.error) {
         setErrorMsg(data.message);
-        console.log(data);
+     
       } else {
         setShowModal(false);
-        console.log(data);
+        setRoutines(routines);
+        navigate("/routines");
       }
     } catch (error) {
       console.log(error);

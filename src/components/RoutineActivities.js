@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { attachActivityToRoutine, fetchAllActivities } from "../api/api";
 import Modal from "./Modal";
 
-const RoutineActivities = ({ routineID }) => {
+const RoutineActivities = ({ routineID, setRoutines, routines }) => {
   const [activities, setActivities] = useState([]);
   const [activityId, setActivityId] = useState(0);
   const [count, setCount] = useState("");
   const [duration, setDuration] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -17,9 +20,9 @@ const RoutineActivities = ({ routineID }) => {
     };
     fetchActivities();
   }, []);
-  // console.log(routineID?.id, activityId, count, duration);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const routineActivity = await attachActivityToRoutine(
         routineID.id,
@@ -33,8 +36,9 @@ const RoutineActivities = ({ routineID }) => {
         setCount("");
         setDuration("");
         setShowModal(false);
+        setRoutines(routines);
+        navigate("/routines");
       }
-      console.log(routineActivity);
     } catch (error) {
       console.log(error);
     }

@@ -18,6 +18,8 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [routineID, setRoutineID] = useState("");
+  const [activities, setActivities] = useState([]);
+  const [routines, setRoutines] = useState([]);
 
   useEffect(() => {
     if (!token) {
@@ -29,6 +31,7 @@ const App = () => {
     }
   }, [isLoggedIn, token]);
 
+  useEffect(() => {}, [routines]);
   return (
     <>
       <Router>
@@ -62,7 +65,12 @@ const App = () => {
             <Route
               path="/activities"
               element={
-                <Activities setIsLoading={setIsLoading} isLoading={isLoading} />
+                <Activities
+                  setIsLoading={setIsLoading}
+                  isLoading={isLoading}
+                  activities={activities}
+                  setActivities={setActivities}
+                />
               }
             />
             <Route
@@ -83,6 +91,8 @@ const App = () => {
                   token={token}
                   setRoutineID={setRoutineID}
                   routineID={routineID}
+                  routines={routines}
+                  setRoutines={setRoutines}
                 />
               }
             />

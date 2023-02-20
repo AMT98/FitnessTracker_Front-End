@@ -2,14 +2,16 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { editRoutine } from "../api/api";
 import Modal from "./Modal";
+import { useNavigate } from "react-router-dom";
 
-const EditRoutine = ({ setIsLoading, routineID }) => {
+const EditRoutine = ({ setIsLoading, routineID, setRoutines, routines }) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [token, setToken] = useState("");
   const [isPublic, setIsPublic] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   const [showModal, setShowModal] = useState(false);
+  let navigate = useNavigate();
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -24,13 +26,13 @@ const EditRoutine = ({ setIsLoading, routineID }) => {
       const data = await editRoutine(name, goal, isPublic, routineID.id, token);
       if (data.error) {
         setErrorMsg(data.message);
-        console.log(data);
       } else {
         setName("");
         setGoal("");
         setIsPublic(false);
         setShowModal(false);
-        console.log(data);
+        setRoutines(routines);
+        navigate("/routines");
       }
     } catch (error) {
       console.log(error);

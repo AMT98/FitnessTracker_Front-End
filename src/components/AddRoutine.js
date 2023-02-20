@@ -23,7 +23,6 @@ const AddRoutine = ({ setIsLoading, setRoutines, routines }) => {
       const data = await createRoutine(name, goal, isPublic, token);
       if (data.error) {
         setErrorMsg(data.message);
-        console.log(data);
       } else {
         setName("");
         setGoal("");
